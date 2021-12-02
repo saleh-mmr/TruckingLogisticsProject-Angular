@@ -27,9 +27,35 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/aos/dist/aos.css",
+              "src/styles.css",
+              "src/assets/css/bootstrap.rtl.min.css",
+              "src/assets/css/owl.theme.default.min.css",
+              "src/assets/css/meanmenu.min.css",
+              "src/assets/css/animate.min.css",
+              "src/assets/css/magnific-popup.min.css",
+              "src/assets/css/odometer.min.css",
+              "src/assets/css/style.css",
+              "src/assets/css/responsive.css",
+              "src/assets/css/rtl.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/aos/dist/aos.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/meanmenu.min.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/wow.min.js",
+              "src/assets/js/magnific-popup.min.js",
+              "src/assets/js/appear.min.js",
+              "src/assets/js/odometer.min.js",
+              "src/assets/js/form-validator.min.js",
+              "src/assets/js/contact-form-script.js",
+              "src/assets/js/ajaxchimp.min.js",
+              "src/assets/js/custom.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,6 +120,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []

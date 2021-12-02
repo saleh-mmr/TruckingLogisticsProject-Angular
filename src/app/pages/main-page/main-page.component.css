@@ -1,0 +1,39 @@
+.top-home-page{
+  height: 100px;
+}
+.first-part-home-page{
+  height: 27rem;
+}
+.corona-statistic{
+  height: 100vh;
+}
+.home-page-heath-care-txt{
+  text-align: center;
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  font-weight: 700;
+  font-family: "Calibri";
+  margin: revert;
+  margin-top: 160px;
+  color: #ffffff;
+}
+.footer-text-mainpage{
+  font-family: b nazanin;
+  text-align: right;
+  font-size: larger;
+}
+.header-btn-new-report{
+  background-color: #3375ec;
+  border-radius: 50px;
+  border: 2px solid white;
+  color: #d3e4ec;
+  outline: none;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: B Titr;
+  width: 190px;
+  height: 51px;
+  border-color: #3375ec;
+  margin-top: 50px;
+}
