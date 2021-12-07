@@ -37,3 +37,17 @@
   border-color: #3375ec;
   margin-top: 50px;
 }
+.span-index-main{
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-block;
+  color: #f76649;
+  background-color: #fde0db;
+  border: 1px solid #f76649;
+  margin-bottom: 20px;
+  line-height: 1;
+  padding: 10px 20px;
+  -webkit-animation: .3s fadeInUpBig;
+  animation: .3s fadeInUpBig;
+  border-radius: 50px;
+}

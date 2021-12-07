@@ -16,6 +16,17 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { ServicesDetailsComponent } from './pages/services-details/services-details.component';
 import {MatIconModule} from '@angular/material/icon';
+import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { TeamComponent } from './pages/team/team.component';
+import { RequestQuoteComponent } from './pages/request-quote/request-quote.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { FaqComponent } from './pages/faq/faq.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { TestimonialsComponent } from './pages/testimonials/testimonials.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -24,7 +35,17 @@ import {MatIconModule} from '@angular/material/icon';
     AboutComponent,
     ContactComponent,
     ServicesComponent,
-    ServicesDetailsComponent
+    ServicesDetailsComponent,
+    TermsConditionsComponent,
+    TeamComponent,
+    RequestQuoteComponent,
+    RegisterComponent,
+    PrivacyPolicyComponent,
+    GalleryComponent,
+    FaqComponent,
+    NotFoundComponent,
+    TestimonialsComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +55,8 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

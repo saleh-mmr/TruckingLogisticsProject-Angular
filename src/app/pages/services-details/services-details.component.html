@@ -1,5 +1,10 @@
-<header class="header-area header-area-style-two">
+<!--<div class="preloader">-->
+<!--  <div class="lds-ripple">-->
+<!--    <div class="pl-spark-1 pl-spark-2"></div>-->
+<!--  </div>-->
+<!--</div>-->
 
+<header class="header-area header-area-style-two">
   <div class="top-header">
     <div class="container">
       <div class="row align-items-center">
@@ -7,17 +12,17 @@
           <ul class="header-left-content">
             <li>
               <a href="https://www.facebook.com/" target="_blank">
-                <i class="ri-facebook-fill"></i>
+                <img src="assets/icons/facebook1.svg" style="width: 35px;">
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com/" target="_blank">
-                <i class="ri-instagram-line"></i>
+                <img src="assets/icons/instagram1.svg" style="width: 35px;">
               </a>
             </li>
             <li>
               <a href="https://twitter.com/" target="_blank">
-                <i class="ri-twitter-fill"></i>
+                <img src="assets/icons/twitter1.svg" style="width: 35px;">
               </a>
             </li>
           </ul>
@@ -26,29 +31,26 @@
           <div class="header-right-content">
             <ul class="my-account">
               <li>
-                <a href="#" class="dropdown-control">
-                  <i class="ri-user-line"></i>
+                <a class="dropdown-control">
+                  <mat-icon class="personal-mat-icon" style="color: #f76649;font-size: larger;vertical-align: -moz-middle-with-baseline">account_circle</mat-icon>
                   حساب من
-                  <i class="ri-arrow-down-s-line"></i>
+                  <mat-icon style="font-size: large;vertical-align: -moz-middle-with-baseline">arrow_drop_down</mat-icon>
                 </a>
                 <ul class="my-account-link">
                   <li>
-                    <a href="my-account.html">حساب من</a>
+                    <a href="/sign-in" >ورود</a>
                   </li>
                   <li>
-                    <a href="log-in.html">ورود</a>
+                    <a href="/sign-up" >عضویت</a>
                   </li>
                   <li>
-                    <a href="register.html">عضویت</a>
-                  </li>
-                  <li>
-                    <a href="request-quote.html">درخواست نقل قول</a>
+                    <a href="/request-quote" >درخواست نقل قول</a>
                   </li>
                 </ul>
               </li>
             </ul>
             <div class="languages-switcher">
-              <i class="ri-global-line"></i>
+              <mat-icon class="personal-mat-icon" style="color: #f76649;font-size: larger;vertical-align: -moz-middle-with-baseline">language</mat-icon>
               <select>
                 <option value="1">فارسی</option>
                 <option value="2">العربيّة</option>
@@ -62,15 +64,13 @@
       </div>
     </div>
   </div>
-
-
   <div class="navbar-area navbar-area-style-two">
     <div class="mobile-responsive-nav">
       <div class="container">
         <div class="mobile-responsive-menu">
           <div class="logo">
-            <a href="index.html">
-              <img src="assets/images/logo.png" alt="logo">
+            <a href="">
+              <img src="assets/images/trucking-logo.png" alt="Image" style="width: 140px">
             </a>
           </div>
         </div>
@@ -78,9 +78,9 @@
     </div>
     <div class="desktop-nav">
       <div class="container">
-        <nav class="navbar navbar-expand-md navbar-light">
-          <a class="navbar-brand" href="index.html">
-            <img src="assets/images/logo.png" alt="logo">
+        <nav class="navbar navbar-expand-md navbar-light" style="height: 70px;">
+          <a class="navbar-brand" href="/">
+            <img src="assets/images/trucking-logo.png" alt="Image" style="width: 140px">
           </a>
           <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
             <ul class="navbar-nav">
@@ -89,138 +89,65 @@
                   خانه
                   <i class="ri-arrow-down-s-line"></i>
                 </a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item">
-                    <a href="index.html" class="nav-link">صفحه اصلی 1</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-2.html" class="nav-link">صفحه اصلی 2</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-3.html" class="nav-link">صفحه اصلی 3</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-4.html" class="nav-link">صفحه اصلی 4</a>
-                  </li>
-                </ul>
               </li>
               <li class="nav-item">
-                <a href="about.html" class="nav-link">درباره ما</a>
+                <a routerLink="/about" class="nav-link">درباره ما</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a class="nav-link">
                   خدمات
-                  <i class="ri-arrow-down-s-line"></i>
+                  <mat-icon style="font-size: large;vertical-align: -moz-middle-with-baseline">arrow_drop_down</mat-icon>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="nav-item">
-                    <a href="services.html" class="nav-link active">خدمات</a>
+                    <a href="/services" class="nav-link">خدمات</a>
                   </li>
                   <li class="nav-item">
-                    <a href="services-details.html" class="nav-link">جزئیات خدمات</a>
+                    <a href="/services-details" class="nav-link">جزئیات خدمات</a>
                   </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a class="nav-link">
                   صفحات
-                  <i class="ri-arrow-down-s-line"></i>
+                  <mat-icon style="font-size: large;vertical-align: -moz-middle-with-baseline">arrow_drop_down</mat-icon>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="nav-item">
-                    <a href="team.html" class="nav-link">تیم</a>
+                    <a href="/about"  class="nav-link">تیم</a>
                   </li>
                   <li class="nav-item">
-                    <a href="pricing.html" class="nav-link">قیمت گذاری</a>
+                    <a href="/gallery" class="nav-link">گالری</a>
                   </li>
                   <li class="nav-item">
-                    <a href="gallery.html" class="nav-link">گالری</a>
+                    <a  href="/faqs" class="nav-link">سوالات متداول</a>
                   </li>
                   <li class="nav-item">
-                    <a href="faq.html" class="nav-link">سوالات متداول</a>
+                    <a href="/testimonials" class="nav-link">بازخورد مشتریان </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      کاربران
-                      <i class="ri-arrow-down-s-line"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li class="nav-item">
-                        <a href="my-account.html" class="nav-link">حساب من</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="log-in.html" class="nav-link">ورود کاربر</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="register.html" class="nav-link">عضویت</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="request-quote.html" class="nav-link">درخواست نقل قول</a>
-                      </li>
-                    </ul>
+                    <a href="/privacy-policy" class="nav-link">حریم خصوصی</a>
                   </li>
                   <li class="nav-item">
-                    <a href="testimonials.html" class="nav-link">بازخورد مشتریان </a>
+                    <a href="/terms-conditions" class="nav-link">قوانین و ضوابط</a>
                   </li>
                   <li class="nav-item">
-                    <a href="privacy-policy.html" class="nav-link">حریم خصوصی</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="terms-conditions.html" class="nav-link">قوانین و ضوابط</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="partner-details.html" class="nav-link">جزئیات پارتنر</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="coming-soon.html" class="nav-link">به زودی</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="404.html" class="nav-link">خطای 404</a>
+                    <a href="/404" class="nav-link">خطای 404</a>
                   </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  وبلاگ
-                  <i class="ri-arrow-down-s-line"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item">
-                    <a href="blog.html" class="nav-link">وبلاگ</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="blog-details.html" class="nav-link">جزئیات وبلاگ</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="contact.html" class="nav-link">تماس با ما</a>
+                <a href="/contact" class="nav-link active">تماس با ما</a>
               </li>
             </ul>
             <div class="others-options">
               <ul>
                 <li>
-                  <div class="option-item">
-                    <i class="search-btn ri-search-line"></i>
-                    <i class="close-btn ri-close-line"></i>
-                    <div class="search-overlay search-popup">
-                      <div class='search-box'>
-                        <form class="search-form">
-                          <input class="search-input" name="search" placeholder="جستجو" type="text">
-                          <button class="search-button" type="submit">
-                            <i class="ri-search-line"></i>
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <a href="tel:+1-(514)-312-5678" class="default-btn">
-<span>
-021-12345678
-<i class="ri-phone-fill"></i>
-</span>
+                  <a href="tel:+98-(912)-241-1361" class="default-btn">
+                    <span>
+                      024-33051
+                      <i class="ri-phone-fill"></i>
+                    </span>
                   </a>
                 </li>
               </ul>
@@ -243,27 +170,11 @@
             <div class="others-option justify-content-center d-flex align-items-center">
               <ul>
                 <li>
-                  <div class="option-item">
-                    <i class="search-btn ri-search-line"></i>
-                    <i class="close-btn ri-close-line"></i>
-                    <div class="search-overlay search-popup">
-                      <div class='search-box'>
-                        <form class="search-form">
-                          <input class="search-input" name="search" placeholder="جستجو" type="text">
-                          <button class="search-button" type="submit">
-                            <i class="ri-search-line"></i>
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
                   <a href="tel:+1-(514)-312-5678" class="default-btn">
-<span>
-021-12345678
-<i class="ri-phone-fill"></i>
-</span>
+                    <span>
+                      021-12345678
+                      <i class="ri-phone-fill"></i>
+                      </span>
                   </a>
                 </li>
               </ul>
@@ -275,7 +186,6 @@
   </div>
 
 </header>
-
 
 
 <div class="page-title-area">

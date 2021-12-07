@@ -1055,7 +1055,7 @@ left: 0;
 	position: relative;
 	height: 555px;
 	overflow: hidden;
-	background-image: url(../../assets/images/banner/banner-bg-1.jpg);
+	/*background-image: url(../../assets/images/banner/banner-bg-1.jpg);*/
 	background-position: right;
 	background-repeat: no-repeat;
 	background-size: contain

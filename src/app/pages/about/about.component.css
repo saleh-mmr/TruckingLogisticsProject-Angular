@@ -1,0 +1,17 @@
+.question-title{
+  color: #1f2428;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  font-size: 19px;
+  font-weight: 600;
+  z-index: 1;
+  font-family: Vazir-Regular-FD, sans-serif;
+}
+.answer-text{
+  font-size: 15px;
+  margin-bottom: 15px;
+  line-height: 1.8;
+  font-family: Vazir-Regular-FD, sans-serif;
+  color: #1f2428;
+}
