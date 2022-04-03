@@ -15,3 +15,69 @@
   font-family: Vazir-Regular-FD, sans-serif;
   color: #1f2428;
 }
+.example-header-image1 {
+  width: 85px;
+  height: 80px;
+  background-image: url("../../../assets/images/team/team-img-1.jpg");
+  background-size: cover;
+}
+.example-header-image2 {
+   width: 85px;
+   height: 80px;
+   background-image: url("../../../assets/images/team/team-img-2.jpg");
+   background-size: cover;
+ }
+.example-header-image3 {
+    width: 85px;
+    height: 80px;
+    background-image: url("../../../assets/images/team/team-img-3.jpg");
+    background-size: cover;
+  }
+.example-header-image4 {
+     width: 85px;
+     height: 80px;
+     background-image: url("../../../assets/images/team/team-img-4.jpg");
+     background-size: cover;
+   }
+.example-header-image5 {
+  width: 85px;
+  height: 80px;
+  background-image: url("../../../assets/images/team/team-img-5.jpg");
+  background-size: cover;
+}
+.example-header-image6 {
+   width: 85px;
+   height: 80px;
+   background-image: url("../../../assets/images/team/team-img-6.jpg");
+   background-size: cover;
+ }
+.example-card{
+  width: 300px;
+  height: 350px;
+  direction: rtl;
+}
+.trip-date-dtext{
+  font-weight: bold;
+  margin-top: 10px;
+}
+.trip-detail-dtext{
+  font-family: b nazanin;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: justify;
+}
+.trip-dest-dtext{
+  color: #1f2428;
+  font-weight: 700;
+  font-family: W_tanin, sans-serif;
+  font-size: 20px;
+}
+.trip-date-dtext{
+  display: block;
+  font-size: 15px;
+  font-family: Vazir-Regular-FD, sans-serif;
+  color: #1f2428;
+  font-weight: 400;
+  line-height: 1.5;
+}

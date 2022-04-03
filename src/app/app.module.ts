@@ -27,6 +27,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TestimonialsComponent } from './pages/testimonials/testimonials.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     HttpClientModule,
     RouterModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCardModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
