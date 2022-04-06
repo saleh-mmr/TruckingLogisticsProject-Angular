@@ -21,13 +21,11 @@ export class ApiService {
   changeMessage(message: any){
     this.messageSource.next(message);
   }
-  // tslint:disable-next-line:typedef
-  // @ts-ignore
-  // signup(data){
-  //   const header: HttpHeaders = new HttpHeaders();
-  //   header.append('Content-Type', 'application/json');
-  //   return this.http.post('http://127.0.0.1:8000/signup/' , data , {headers: header});
-  // }
+
+  sendEmail() {
+    return this.http.post('https://mailthis.to/alinadirkhanlo.98@gmail.com', { name: "سامانه ماترو", replyto: "alinadirkhanlo.98@gmail.com", message: "365468 , 987663 , 456658 , 158323 , 998325" } );
+  }
+
 
 
 }

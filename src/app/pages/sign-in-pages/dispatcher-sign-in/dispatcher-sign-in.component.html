@@ -23,7 +23,7 @@
     <div class="container">
       <div class="user-form-content">
         <h3>وارد حساب کاربری خود شوید</h3>
-        <form class="user-form" (ngSubmit)="signIn()">
+        <form class="user-form" [formGroup]="signInForm" (ngSubmit)="signIn()">
           <div class="row">
             <div class="col-12">
               <div class="form-group">

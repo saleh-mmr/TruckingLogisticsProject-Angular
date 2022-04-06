@@ -1,3 +1,7 @@
+import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign-in/dispatcher-sign-in.component';
+import { UserDashboardComponent } from './pages/dashboards/user-dashboard/user-dashboard.component';
+import { InfoComponent } from './pages/sign-in-pages/info/info.component';
+import { ConfirmationComponent } from './pages/sign-in-pages/confirmation/confirmation.component';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {AuthGuard} from './helpers/auth.guard';
@@ -16,7 +20,7 @@ import {ServicesComponent} from "./pages/services/services.component";
 import {ServicesDetailsComponent} from "./pages/services-details/services-details.component";
 import {TestimonialsComponent} from "./pages/testimonials/testimonials.component";
 import {SignInComponent} from "./pages/sign-in-pages/sign-in/sign-in.component";
-import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign-in/dispatcher-sign-in.component';
+import { DistpatcherDashboardComponent } from './pages/dashboards/distpatcher-dashboard/distpatcher-dashboard.component';
 
 const routers: Routes = [
   {path: '', component: MainPageComponent},
@@ -30,7 +34,11 @@ const routers: Routes = [
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
   {path: 'sign-up', component: RegisterComponent},
   {path: 'sign-in', component: SignInComponent},
+  {path: 'sign-in/confirmation', component: ConfirmationComponent},
+  {path: 'sign-in/info', component: InfoComponent},
   {path: 'dispatcher-sign-in', component: DispatcherSignInComponent},
+  {path: 'user-dashboard', component: UserDashboardComponent },
+  {path: 'dispatcher-dashboard', component: DistpatcherDashboardComponent},
   {path: 'request-quote', component: RequestQuoteComponent},
   {path: 'team', component: TeamComponent},
   {path: 'terms-conditions', component: TermsConditionsComponent},

@@ -22,24 +22,27 @@
   <div class="container">
     <div class="user-form-content">
       <h3>وارد حساب کاربری خود شوید</h3>
-      <form class="user-form" (ngSubmit)="signIn()">
+      <form class="user-form" [formGroup]="signInForm" (ngSubmit)="signIn()">
         <div class="row">
           <div class="col-12">
             <div class="form-group">
               <label>شماره تماس</label>
-              <input class="form-control" placeholder="09xxxxxxxxx" maxlength="11" minlength="11" required type="text" name="name" />
+              <input class="form-control" formControlName="phoneNumber" placeholder="09xxxxxxxxx" maxlength="11" minlength="11" autocomplete="off" required
+               type="text" name="name" />
+               <p style="color: red;" *ngIf="phoneNumber?.invalid && phoneNumberValue>0" > شماره تلفن به درستی وارد نشده</p>
             </div>
+            
           </div>
           <div class="col-12">
             <div class="login-action">
               <span class="log-rem">
-                <input id="remember-2" type="checkbox" />
+                <input id="remember-2" formControlName="flag" type="checkbox" />
                 <label class="mx-2">شرایط و قوانین را قبول دارم</label>
               </span>
             </div>
           </div>
           <div class="col-12">
-            <button class="default-btn" type="submit">ادامه</button>
+            <button class="default-btn" type="submit" [disabled]="!(signInForm.valid && flag)">ادامه</button>
           </div>
 
         </div>

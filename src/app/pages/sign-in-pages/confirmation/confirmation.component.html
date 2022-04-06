@@ -23,18 +23,18 @@
     <div class="container">
       <div class="user-form-content">
         <h3>لطفا کد ارسالی از سامانه را وارد نمایید.</h3>
-        <form class="user-form" (ngSubmit)="submit()">
+        <form class="user-form" [formGroup]="signInForm" (ngSubmit)="submit()">
           <div class="row">
             <div class="col-12">
               <div class="form-group">
                 <label>کد دریافتی</label>
-                <input class="form-control" type="text" name="name" />
+                <input class="form-control" formControlName="code" type="text" required maxlength="6" minlength="6" name="name" />
               </div>
             </div>
             
            
             <div class="col-12">
-              <button class="default-btn" type="submit">وارد به سامانه</button>
+              <button class="default-btn" type="submit" [disabled]="signInForm.invalid">وارد به سامانه</button>
             </div>
             
           </div>
