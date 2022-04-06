@@ -22,18 +22,12 @@
   <div class="container">
     <div class="user-form-content">
       <h3>وارد حساب کاربری خود شوید</h3>
-      <form class="user-form">
+      <form class="user-form" (ngSubmit)="signIn()">
         <div class="row">
           <div class="col-12">
             <div class="form-group">
-              <label>ایمیل</label>
-              <input class="form-control" type="text" name="name" />
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="form-group">
-              <label>گذرواژه</label>
-              <input class="form-control" type="password" name="password" />
+              <label>شماره تماس</label>
+              <input class="form-control" placeholder="09xxxxxxxxx" maxlength="11" minlength="11" required type="text" name="name" />
             </div>
           </div>
           <div class="col-12">
@@ -42,17 +36,12 @@
                 <input id="remember-2" type="checkbox" />
                 <label class="mx-2">شرایط و قوانین را قبول دارم</label>
               </span>
-              <span class="forgot-login">
-                <a href="#">فراموشی گذرواژه؟</a>
-              </span>
             </div>
           </div>
           <div class="col-12">
-            <button class="default-btn" type="submit">وارد شوید</button>
+            <button class="default-btn" type="submit">ادامه</button>
           </div>
-          <div class="col-12">
-            <p class="create">حساب کاربری ندارید؟ <a href="/sign-up">ثبت نام</a></p>
-          </div>
+
         </div>
       </form>
     </div>
