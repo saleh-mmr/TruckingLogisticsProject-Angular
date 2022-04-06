@@ -1,3 +1,5 @@
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -46,7 +48,7 @@ import {MatCardModule} from "@angular/material/card";
     FaqComponent,
     NotFoundComponent,
     TestimonialsComponent,
-    SignInComponent
+    SignInComponent,FooterComponent,HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import {MatCardModule} from "@angular/material/card";
     RouterModule,
     MatIconModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
