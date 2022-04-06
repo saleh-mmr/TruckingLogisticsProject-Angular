@@ -16,6 +16,7 @@ import {ServicesComponent} from "./pages/services/services.component";
 import {ServicesDetailsComponent} from "./pages/services-details/services-details.component";
 import {TestimonialsComponent} from "./pages/testimonials/testimonials.component";
 import {SignInComponent} from "./pages/sign-in-pages/sign-in/sign-in.component";
+import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign-in/dispatcher-sign-in.component';
 
 const routers: Routes = [
   {path: '', component: MainPageComponent},
@@ -29,6 +30,7 @@ const routers: Routes = [
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
   {path: 'sign-up', component: RegisterComponent},
   {path: 'sign-in', component: SignInComponent},
+  {path: 'dispatcher-sign-in', component: DispatcherSignInComponent},
   {path: 'request-quote', component: RequestQuoteComponent},
   {path: 'team', component: TeamComponent},
   {path: 'terms-conditions', component: TermsConditionsComponent},
