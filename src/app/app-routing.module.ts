@@ -15,7 +15,7 @@ import {TermsConditionsComponent} from "./pages/terms-conditions/terms-condition
 import {ServicesComponent} from "./pages/services/services.component";
 import {ServicesDetailsComponent} from "./pages/services-details/services-details.component";
 import {TestimonialsComponent} from "./pages/testimonials/testimonials.component";
-import {SignInComponent} from "./pages/sign-in/sign-in.component";
+import {SignInComponent} from "./pages/sign-in-pages/sign-in/sign-in.component";
 
 const routers: Routes = [
   {path: '', component: MainPageComponent},

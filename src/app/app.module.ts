@@ -27,9 +27,10 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TestimonialsComponent } from './pages/testimonials/testimonials.component';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { SignInComponent } from './pages/sign-in-pages/sign-in/sign-in.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
+import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign-in/dispatcher-sign-in.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import {MatCardModule} from "@angular/material/card";
     FaqComponent,
     NotFoundComponent,
     TestimonialsComponent,
-    SignInComponent,FooterComponent,HeaderComponent
+    SignInComponent,FooterComponent,HeaderComponent, DispatcherSignInComponent
   ],
   imports: [
     BrowserModule,
