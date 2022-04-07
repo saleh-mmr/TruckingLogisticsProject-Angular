@@ -1,3 +1,4 @@
+import { DynamicTableModule } from './components/dynamic-table/dynamic-table.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -67,7 +68,7 @@ import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign
     RouterModule,
     MatIconModule,
     MatExpansionModule,
-    MatCardModule,MatTabsModule
+    MatCardModule,MatTabsModule,DynamicTableModule
     
   ],
   providers: [
