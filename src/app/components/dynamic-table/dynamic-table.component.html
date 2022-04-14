@@ -4,7 +4,7 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="عبارت مورد نظر را وارد کنید" #input />
       </mat-form-field>
       
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+      <table mat-table [dataSource]="dataSource" class="w-100">
         <ng-container
           *ngFor="let column of columns"
           [matColumnDef]="column.columnDef"
@@ -12,9 +12,24 @@
           <th mat-header-cell *matHeaderCellDef>
             {{ column.header }}
           </th>
-          <td mat-cell *matCellDef="let row">
-            {{ column.cell(row) }}
-          </td>
+          <ng-container *matCellDef="let row" >
+            <td mat-cell
+             *ngIf="column.columnDef!='accept' && column.columnDef!='reject'  && column.columnDef!='delete'">
+              {{ column.cell(row) }}
+            </td>
+            <td mat-cell *ngIf="column.columnDef=='accept'">
+              <button class="btn btn-success btn-sm">قبول درخواست</button>
+            </td>
+            <td mat-cell *ngIf="column.columnDef=='reject'">
+              <button class="btn btn-danger btn-sm px-4">لغو</button>
+            </td>
+
+            <td mat-cell *ngIf="column.columnDef=='delete'">
+              <button class="btn btn-danger btn-sm px-4">حذف</button>
+            </td>
+          </ng-container>
+          
+          
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -63,7 +63,64 @@ export class UserDashboardComponent implements OnInit {
     columnDef: 'cost',
     header: 'مبلغ پیشنهادی (تومان)',
     cell: (element: PeriodicElement) => `${element.cost}`,
+  },
+  {
+    columnDef: 'delete',
+    header: '',
+    cell: (element: PeriodicElement) => `${element.cost}`,
   }
+]
+tab3=[
+  {
+  columnDef: 'Negotiation',
+  header: 'مذاکره',
+  cell: (element: PeriodicElement) => `${element.Negotiation}`,
+},
+{
+  columnDef: 'downloadDate',
+  header: 'تاریخ بارگیری',
+  cell: (element: PeriodicElement) => `${element.downloadDate}`,
+},
+{
+  columnDef: 'submitDate',
+  header: 'تاریخ ثبت بار',
+  cell: (element: PeriodicElement) => `${element.submitDate}`,
+},
+{
+  columnDef: 'typeOfLoad',
+  header: 'نوع بار',
+  cell: (element: PeriodicElement) => `${element.typeOfLoad}`,
+},
+{
+  columnDef: 'reciver',
+  header: 'گیرنده',
+  cell: (element: PeriodicElement) => `${element.reciver}`,
+},
+{
+  columnDef: 'carType',
+  header: 'نوع ماشین',
+  cell: (element: PeriodicElement) => `${element.carType}`,
+},
+{
+  columnDef: 'source',
+  header: 'مبدا - مقصد',
+  cell: (element: PeriodicElement) => `${element.source}`,
+},
+{
+  columnDef: 'status',
+  header: 'وضعیت',
+  cell: (element: PeriodicElement) => `${element.status}`,
+},
+{
+  columnDef: 'cost',
+  header: 'مبلغ پیشنهادی (تومان)',
+  cell: (element: PeriodicElement) => `${element.cost}`,
+},
+{
+  columnDef: 'reject',
+  header: '',
+  cell: (element: PeriodicElement) => `${element.cost}`,
+}
 ]
 tab2=[
   {
