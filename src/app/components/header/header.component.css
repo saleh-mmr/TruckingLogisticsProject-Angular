@@ -1,0 +1,14 @@
+.home-header-btn{
+    font-size: 12px;
+    color: #fff;
+    line-height: 1;
+    transition: all ease .5s;
+    text-align: center;
+    background-color: #f76649;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-table;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }

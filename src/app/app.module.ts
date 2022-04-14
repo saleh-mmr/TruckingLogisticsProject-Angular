@@ -1,3 +1,7 @@
+import { DynamicTableModule } from './components/dynamic-table/dynamic-table.module';
+
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -25,9 +29,15 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TestimonialsComponent } from './pages/testimonials/testimonials.component';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { SignInComponent } from './pages/sign-in-pages/sign-in/sign-in.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatTabsModule} from "@angular/material/tabs";
 import {MatCardModule} from "@angular/material/card";
+import { InfoComponent } from './pages/sign-in-pages/info/info.component';
+import { ConfirmationComponent } from './pages/sign-in-pages/confirmation/confirmation.component';
+import { UserDashboardComponent } from './pages/dashboards/user-dashboard/user-dashboard.component';
+import { DistpatcherDashboardComponent } from './pages/dashboards/distpatcher-dashboard/distpatcher-dashboard.component';
+import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign-in/dispatcher-sign-in.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +56,7 @@ import {MatCardModule} from "@angular/material/card";
     FaqComponent,
     NotFoundComponent,
     TestimonialsComponent,
-    SignInComponent
+    SignInComponent,FooterComponent,HeaderComponent, DispatcherSignInComponent, InfoComponent, ConfirmationComponent, UserDashboardComponent, DistpatcherDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +68,8 @@ import {MatCardModule} from "@angular/material/card";
     RouterModule,
     MatIconModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,MatTabsModule,DynamicTableModule
+    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

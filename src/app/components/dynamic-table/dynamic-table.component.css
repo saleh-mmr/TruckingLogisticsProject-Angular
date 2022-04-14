@@ -1,0 +1,8 @@
+::ng-deep .mat-tab-label .mat-tab-label-content,::ng-deep .mat-form-field-infix
+,th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    font-family: Vazir-Regular-FD, sans-serif!important;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,::ng-deep  .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #f76649;
+}
