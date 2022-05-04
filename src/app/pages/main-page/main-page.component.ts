@@ -1,3 +1,4 @@
+import { SharedService } from 'src/app/services/shared.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +12,7 @@ export class MainPageComponent implements OnInit {
   flag2 = false;
   testFlag1 = false;
   testFlag2 = false;
-  constructor() { }
+  constructor(public shared:SharedService) { }
 
 
   changFlagToHistory(): void{

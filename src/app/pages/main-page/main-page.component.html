@@ -14,7 +14,7 @@
           <span class="span-index-main">به ماترو خوش آمدید</span>
           <h1 style="padding-top: 80px;font-size: 72px;margin-bottom: 32px;animation: .6s fadeInUpBig;font-weight: 800;">ما شرکت حمل و نقل و تدارکات ماترو هستیم</h1>
           <p style="padding: 20px;">لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است. لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم استاندارد صنعت بوده است.</p>
-          <div class="banner-btn">
+          <div class="banner-btn" *ngIf="!shared.getIsLogin()">
             <a href="/sign-in" class="default-btn mx-1 text-center">
               ورود صاحبان بار
 
@@ -25,6 +25,7 @@
 
               </a>
           </div>
+          
         </div>
       </div>
       <div class="col-lg-7" style="background-image: url('assets/images/banner/banner-bg-3.jpg');">

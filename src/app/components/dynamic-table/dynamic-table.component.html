@@ -14,18 +14,27 @@
           </th>
           <ng-container *matCellDef="let row" >
             <td mat-cell
-             *ngIf="column.columnDef!='accept' && column.columnDef!='reject'  && column.columnDef!='delete'">
+             *ngIf="column.columnDef!='accept' && column.columnDef!='reject'
+               && column.columnDef!='delete'  && column.columnDef!='detail'">
               {{ column.cell(row) }}
             </td>
-            <td mat-cell *ngIf="column.columnDef=='accept'">
-              <button class="btn btn-success btn-sm">قبول درخواست</button>
+            <td mat-cell *ngIf="column.columnDef=='detail'">
+              <div class="row col-sm-12">
+                <div class="col-12 px-2">
+                  <button class="btn btn-danger col-12 btn-sm " (click)="openDetailModal()">جزئیات بار</button>
+                </div>
+              </div>
+              
             </td>
-            <td mat-cell *ngIf="column.columnDef=='reject'">
-              <button class="btn btn-danger btn-sm px-4">لغو</button>
+            <td class="row" mat-cell *ngIf="column.columnDef=='reject'">
+              <button class="btn btn-danger btn-sm col-sm-6">لغو</button>
+              <button class="btn btn-danger btn-sm col-sm-6"
+              (click)="openDetailModal()">جزئیات بار</button>
             </td>
-
-            <td mat-cell *ngIf="column.columnDef=='delete'">
-              <button class="btn btn-danger btn-sm px-4">حذف</button>
+            <td class="row" mat-cell *ngIf="column.columnDef=='delete'">
+              <button class="btn btn-danger btn-sm col-sm-6">حذف</button>
+              <button class="btn btn-danger btn-sm col-sm-6"
+              (click)="openDetailModal()">جزئیات بار</button>
             </td>
           </ng-container>
           

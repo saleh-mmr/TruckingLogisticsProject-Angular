@@ -39,6 +39,41 @@
         <mat-tab label="تحویل شده">
           <app-dynamic-table [columns]="tab2"></app-dynamic-table>
         </mat-tab>
+        <mat-tab label="پیام ها">
+          <ng-container *ngFor="let item of [1,2]">
+            <div class="container bg-white mylist">
+              <div class="p-4 row">
+                <div class="col-sm-9">
+                  <div class="row">
+                    <div class="row col-sm-6 py-2">
+                      <mat-icon class="col-3 ">account_circle</mat-icon>
+                      <p class="p-0 col-9">
+                        تاریخ بارگیری : <span><b>شکستنی</b></span>
+                      </p>
+                    </div>
+                    <div class="row col-sm-6 py-2">
+                      <mat-icon class="col-3">new_releases</mat-icon>
+                      <p class="p-0 col-9">
+                          نوع بار : <span><b>شکستنی</b></span>
+                     </p>
+                  </div>
+                    
+                    <div class="row col-sm-12 py-2">
+                      <mat-icon class="col-3 text-info">access_time</mat-icon>
+                      <p class="p-0 col-9">
+                        تاریخ بارگیری : <span><b>شکستنی</b></span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 pt-1">
+                  <button class="btn btn-danger btn-sm py-3 col-12  mb-3"> ارسال پیام </button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </mat-tab>
+        
       </mat-tab-group>
     </div>
   </div>

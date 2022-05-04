@@ -23,7 +23,7 @@
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="header-right-content">
-              <ul class="my-account">
+              <ul class="my-account" *ngIf="shared.getIsLogin()">
                 <li>
                   <a class="dropdown-control">
                     <mat-icon class="personal-mat-icon" style="color: #f76649;font-size: larger;vertical-align: -moz-middle-with-baseline">account_circle</mat-icon>
@@ -32,15 +32,15 @@
                   </a>
                   <ul class="my-account-link">
                     <li>
-                      <a href="/sign-in" >پروفایل</a>
+                      <a (click)="profile()" >پروفایل</a>
                     </li>
                     <li>
-                      <a href="/sign-up" >خروج</a>
+                      <a  (click)="logout()" >خروج</a>
                     </li>
                   </ul>
                 </li>
               </ul>
-              <div class="languages-switcher">
+              <div class="languages-switcher" *ngIf="!shared.getIsLogin()">
                 <a href="/sign-in" class="home-header-btn mx-1">
                   ورود صاحبان بار
                   <i class="ri-arrow-left-line"></i>
@@ -73,8 +73,8 @@
             <a class="navbar-brand" href="/">
               <img src="assets/images/trucking-logo.png" alt="Image" style="width: 140px">
             </a>
-            <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-              <ul class="navbar-nav">
+            <div class="collapse navbar-collapse mean-menu " id="navbarSupportedContent">
+              <ul class="navbar-nav m-auto">
                 <li class="nav-item">
                   <a href="#" class="nav-link">
                     خانه
@@ -85,64 +85,45 @@
                   <a routerLink="/about" class="nav-link">درباره ما</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link">
-                    خدمات
-                    <mat-icon style="font-size: large;vertical-align: -moz-middle-with-baseline">arrow_drop_down</mat-icon>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-item">
-                      <a href="/services" class="nav-link">خدمات</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/services-details" class="nav-link">جزئیات خدمات</a>
-                    </li>
-                  </ul>
+                  <a href="/services" class="nav-link">خدمات</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="/about"  class="nav-link">تیم</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                  <a href="/gallery" class="nav-link">گالری</a>
+                </li> -->
+                <li class="nav-item">
+                  <a  href="/faqs" class="nav-link">سوالات متداول</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="/testimonials" class="nav-link">بازخورد مشتریان </a>
+                </li> -->
+                <li class="nav-item">
+                  <a href="/privacy-policy" class="nav-link">حریم خصوصی</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link">
-                    صفحات
-                    <mat-icon style="font-size: large;vertical-align: -moz-middle-with-baseline">arrow_drop_down</mat-icon>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-item">
-                      <a href="/about"  class="nav-link">تیم</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/gallery" class="nav-link">گالری</a>
-                    </li>
-                    <li class="nav-item">
-                      <a  href="/faqs" class="nav-link">سوالات متداول</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/testimonials" class="nav-link">بازخورد مشتریان </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/privacy-policy" class="nav-link">حریم خصوصی</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/terms-conditions" class="nav-link">قوانین و ضوابط</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/404" class="nav-link">خطای 404</a>
-                    </li>
-                  </ul>
+                  <a href="/terms-conditions" class="nav-link">قوانین و ضوابط</a>
                 </li>
+                <!-- <li class="nav-item">
+                  <a href="/404" class="nav-link">خطای 404</a>
+                </li> -->
                 <li class="nav-item">
                   <a href="/contact" class="nav-link active">تماس با ما</a>
                 </li>
               </ul>
-              <div class="others-options">
+              <!-- <div class="others-options">
                 <ul>
                   <li>
                     <a href="tel:+98-(912)-241-1361" class="default-btn">
                       <span>
-                        024-33051
+                        ثبت بار
                         <i class="ri-phone-fill"></i>
                       </span>
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </nav>
         </div>

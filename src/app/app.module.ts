@@ -38,7 +38,7 @@ import { ConfirmationComponent } from './pages/sign-in-pages/confirmation/confir
 import { UserDashboardComponent } from './pages/dashboards/user-dashboard/user-dashboard.component';
 import { DistpatcherDashboardComponent } from './pages/dashboards/distpatcher-dashboard/distpatcher-dashboard.component';
 import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign-in/dispatcher-sign-in.component';
-
+import { NgpImagePickerModule } from 'ngp-image-picker'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +67,7 @@ import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign
     HttpClientModule,
     RouterModule,
     MatIconModule,
-    MatExpansionModule,
+    MatExpansionModule,NgpImagePickerModule,
     MatCardModule,MatTabsModule,DynamicTableModule
     
   ],

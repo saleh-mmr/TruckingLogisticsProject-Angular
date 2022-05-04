@@ -1,4 +1,6 @@
+import { DetailModalComponent } from './../detail-modal/detail-modal.component';
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 interface PeriodicElement {
   Negotiation?: string;
@@ -30,7 +32,7 @@ export class DynamicTableComponent implements OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   @Input() columns !:any[];
   displayedColumns :any;
-  constructor() {
+  constructor(public dialog: MatDialog) {
     setTimeout(() => {
       this.displayedColumns =this.columns.map(c => c.columnDef);
     }, 500);
@@ -46,5 +48,17 @@ export class DynamicTableComponent implements OnInit {
   loadData(){
     
   }
+
+  openDetailModal(){
+    const dialogRef = this.dialog.open(DetailModalComponent, {
+      width: '850px',
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  
 
 }

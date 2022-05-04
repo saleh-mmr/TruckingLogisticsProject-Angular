@@ -17,9 +17,7 @@ export class InfoComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private api:ApiService,private shared:SharedService) {
     this.signInForm = this._formBuilder.group({
-      fullName: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      rePassword: ['', [Validators.required]],
+      fullName: ['', [Validators.required]]
     });
    }
 
@@ -33,7 +31,7 @@ export class InfoComponent implements OnInit {
     else 
       this.router.navigate(['dispatcher-dashboard']);
     
-    
+    this.shared.setIsLogin(true);
   }
 
   sendCodeViaEmail(){

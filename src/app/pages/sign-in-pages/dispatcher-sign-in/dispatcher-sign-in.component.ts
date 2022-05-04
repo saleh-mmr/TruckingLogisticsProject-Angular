@@ -22,6 +22,7 @@ export class DispatcherSignInComponent implements OnInit {
     this.shared.setType(false);
   }
   signIn(){
+    this.shared.setPhone(this.signInForm.controls.phoneNumber.value);
     this.router.navigate(['sign-in/info']);
   }
 
