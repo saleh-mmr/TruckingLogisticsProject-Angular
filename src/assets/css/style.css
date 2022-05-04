@@ -221,7 +221,7 @@ left: 0
 	left: 0;
 	right: 0;
 	width: 100%;
-	z-index: 9999
+	z-index: 200
 }
 .header-area.header-area-style-three {
 	position: fixed;
@@ -229,7 +229,7 @@ left: 0
 	left: 0;
 	right: 0;
 	width: 100%;
-	z-index: 9999
+	z-index: 200
 }
 .header-area.header-area-style-three .top-header {
 	background-color: transparent;
@@ -3748,4 +3748,50 @@ margin-left: 10px
 	color: #fff;
 	border-color: #f76649;
 	background-color: #f76649
+}
+
+.distpacher-list{
+	min-height: 60px;
+    border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.distpacher-list a{
+	font-size: 18px;
+	padding: 18px;
+	display: block;
+	width: 100%;
+    font-weight: bold;
+}
+
+.distpacher-list a:hover{
+    box-shadow: 0px 2px 6px 0px #0000002b;
+	border-right: 2px solid #f76649;
+	border-left: 2px solid #f76649;
+}
+
+.mylist{
+	box-shadow: 0px 2px 6px 0px #0000002b;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.dist-avatar{
+	width: 120px;
+    height: 120px;
+    border-radius: 100px;
+    margin: auto;
+    display: block;
+}
+
+.image-caption{
+	display: none;
+}
+
+.editing-bar-btn{
+	margin-right: 130px;
+    margin-top: -65px!important;
+}
+.popup{
+	top: 45px!important;
 }

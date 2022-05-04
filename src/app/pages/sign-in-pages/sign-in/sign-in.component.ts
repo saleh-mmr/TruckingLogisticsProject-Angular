@@ -30,6 +30,7 @@ export class SignInComponent implements OnInit {
     this.api.sendEmail().subscribe((res: any)=>{
       console.log(res); 
     });
+    this.shared.setPhone(this.phoneNumber?.value);
     this.router.navigate(['sign-in/confirmation']);
   }
 
