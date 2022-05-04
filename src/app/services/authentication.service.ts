@@ -8,6 +8,9 @@ import {Router} from '@angular/router';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
+  mainAddress = 'http://127.0.0.1:8000'
+
+
   constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(<any>localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -21,44 +24,18 @@ export class AuthenticationService {
 
 
 
+  signIn(data: any) {
+    return this.http.post<any>(`${this.mainAddress}/signin/`, data)
+      .pipe(map(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }));
+  }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // private tripInfoUrl = 'http://127.0.0.1:8000/trip-info';
-  // private editTripInfoUrl = 'http://127.0.0.1:8000/edit-trip-info';
-  // private addParticipantUrl = 'http://127.0.0.1:8000/add-participant';
-  // private tripParticipantsUrl = 'http://127.0.0.1:8000/trip-participants';
-  // private tripTransactionsUrl = 'http://127.0.0.1:8000/trip-transactions';
-  // private calculateDongUrl = 'http://127.0.0.1:8000/calculate-dong';
-  // // tslint:disable-next-line:typedef
-  // login(data) {
-  //   return this.http.post<any>('http://127.0.0.1:8000/login/', data)
-  //     .pipe(map(user => {
-  //       // store user details and jwt token in local storage to keep user logged in between page refreshes
-  //       localStorage.setItem('currentUser', JSON.stringify(user));
-  //       this.currentUserSubject.next(user);
-  //       return user;
-  //     }));
-  // }
-  //
-  // // tslint:disable-next-line:typedef
-  // logout() {
+  // signout() {
   //   // remove user from local storage to log user out
   //   this.http.get('http://127.0.0.1:8000/logout/' ).subscribe(data => {
   //     localStorage.removeItem('currentUser');

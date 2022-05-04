@@ -33,39 +33,46 @@
   <div class="container">
     <div class="user-form-content">
       <h3>ایجاد حساب کاربری</h3>
-      <form class="user-form">
+      <form class="user-form"  [formGroup]="signUnForm" (ngSubmit)="signUp()">
         <div class="row">
           <div class="col-12">
             <div class="form-group">
               <label>نام</label>
-              <input class="form-control" type="text" name="name">
+              <input class="form-control" type="text" name="name" formControlName="firstname" >
             </div>
           </div>
           <div class="col-12">
             <div class="form-group">
-              <label>ایمیل</label>
-              <input class="form-control" type="email" name="email">
+              <label>نام خانوادگی</label>
+              <input class="form-control" type="text" name="family" formControlName="lastname" >
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label>شماره تماس</label>
+              <input class="form-control" type="text" name="phone" formControlName="pnumber" >
             </div>
           </div>
           <div class="col-12">
             <div class="form-group">
               <label>گذرواژه</label>
-              <input class="form-control" type="password" name="password">
+              <input class="form-control" type="password" name="password" formControlName="password" >
             </div>
           </div>
           <div class="col-12">
             <div class="form-group">
               <label>تکرار گذرواژه</label>
-              <input class="form-control" type="password" name="repeat-password">
+              <input class="form-control" type="password" name="repeat-password" formControlName="cpassword" >
             </div>
           </div>
+          <mat-radio-group aria-label="Select an option" formControlName="type" style="text-align: center; padding-bottom: 24px;">
+            <mat-radio-button value=1  style="font-family: Vazir-Regular-FD, sans-serif; color: #1f2428;padding-left: 60px;">راننده</mat-radio-button>
+            <mat-radio-button value=2  style="font-family: Vazir-Regular-FD, sans-serif; color: #1f2428;">صاحب بار</mat-radio-button>
+          </mat-radio-group>
           <div class="col-12">
-            <button class="default-btn register" type="submit">
+            <button class="default-btn register" type="submit" (click)="signUp">
               ثبت نام کنید
             </button>
-          </div>
-          <div class="col-12">
-            <p class="create">حساب کاربری دارید؟ <a href="#">وارد شوید</a></p>
           </div>
         </div>
       </form>

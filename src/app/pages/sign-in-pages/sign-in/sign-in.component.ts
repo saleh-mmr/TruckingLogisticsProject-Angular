@@ -26,12 +26,17 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     this.shared.setType(true);
   }
-  signIn(){
-    this.api.sendEmail().subscribe((res: any)=>{
-      console.log(res); 
+  continue(){
+    this.shared.setPhone(this.phoneNumber?.value)
+    this.api.usercheck(this.phoneNumber?.value).subscribe((res: any)=>{
+      this.shared.setPhone(this.phoneNumber?.value);
+      if(res['flag']){
+        this.router.navigate(['sign-in/confirmation']);
+      }
+      else{
+        this.router.navigate(['sign-up']);
+      }
     });
-    this.shared.setPhone(this.phoneNumber?.value);
-    this.router.navigate(['sign-in/confirmation']);
   }
 
 

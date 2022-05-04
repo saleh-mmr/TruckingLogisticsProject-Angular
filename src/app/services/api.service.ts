@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ApiService {
 
+  mainAddress = 'http://127.0.0.1:8000'
   private messageSource = new BehaviorSubject<any>('default message');
   currentMessage = this.messageSource.asObservable();
 
@@ -23,9 +24,23 @@ export class ApiService {
   }
 
   sendEmail() {
-    return this.http.post('https://mailthis.to/alinadirkhanlo.98@gmail.com', { name: "سامانه ماترو", replyto: "alinadirkhanlo.98@gmail.com", message: "365468 , 987663 , 456658 , 158323 , 998325" } );
+    return this.http.post(`${this.mainAddress}/usercheck/`, { name: "سامانه ماترو", replyto: "alinadirkhanlo.98@gmail.com", message: "365468 , 987663 , 456658 , 158323 , 998325" } );
   }
 
+
+  
+  usercheck(data: any) {
+    return this.http.post(`${this.mainAddress}/usercheck/`, { pnumber: data } );
+  }  
+
+
+  codecheck(data: any) {
+    return this.http.post(`${this.mainAddress}/codecheck/`, { code: data } );
+  }
+
+  signUp(data: any) {
+    return this.http.post(`${this.mainAddress}/signup/`, data);
+  }
 
 
 }

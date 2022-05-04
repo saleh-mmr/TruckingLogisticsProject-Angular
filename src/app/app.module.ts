@@ -39,6 +39,7 @@ import { UserDashboardComponent } from './pages/dashboards/user-dashboard/user-d
 import { DistpatcherDashboardComponent } from './pages/dashboards/distpatcher-dashboard/distpatcher-dashboard.component';
 import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign-in/dispatcher-sign-in.component';
 import { NgpImagePickerModule } from 'ngp-image-picker'; 
+import {MatRadioModule} from '@angular/material/radio'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,8 @@ import { NgpImagePickerModule } from 'ngp-image-picker';
     RouterModule,
     MatIconModule,
     MatExpansionModule,NgpImagePickerModule,
-    MatCardModule,MatTabsModule,DynamicTableModule
+    MatCardModule,MatTabsModule,DynamicTableModule,
+    MatRadioModule
     
   ],
   providers: [
