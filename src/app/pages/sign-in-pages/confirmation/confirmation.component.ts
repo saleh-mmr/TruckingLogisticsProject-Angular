@@ -23,7 +23,8 @@ export class ConfirmationComponent implements OnInit {
   }
 
   submit(){
-    this.auth.signIn({"user": localStorage.getItem('phone'), "pass": this.signInForm.controls.code.value}).subscribe((res: any)=>{
+    this.auth.signIn({"user": localStorage.getItem('phone'), "pass": this.signInForm.controls.pass.value}).subscribe((res: any)=>{
+      console.log(res);
       if (res["type"]) {
         this.router.navigate(['/driver-dashboard']);
       }
