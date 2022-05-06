@@ -22,7 +22,14 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
-
+  signout() {
+    // remove user from local storage to log user out
+    this.http.get(`${this.mainAddress}/signout/`).subscribe(data => {
+      localStorage.removeItem('currentUser');
+      this.currentUserSubject.next(null);
+    });
+    this.router.navigate(['/']);
+  }
 
   signIn(data: any) {
     return this.http.post<any>(`${this.mainAddress}/signin/`, data)
@@ -32,17 +39,42 @@ export class AuthenticationService {
         this.currentUserSubject.next(user);
         return user;
       }));
+}
+
+  addTruck(data: any){
+    return this.http.post<any>(`${this.mainAddress}/add-truck/`, data);
+  }
+  
+  showTrucks(){
+    return this.http.get<any>(`${this.mainAddress}/show-trucks/`);
+  }
+
+  showRequestsForDriver(){
+    return this.http.get<any>(`${this.mainAddress}/show-request-list/`);
+  }
+
+  showDetailRequestForDriver(data: any){
+    return this.http.post<any>(`${this.mainAddress}/show-request-detail/`, data);
+  }
+
+  acceptRequest(data: any){
+    return this.http.post<any>(`${this.mainAddress}/accept-request/`, data);
+  }
+
+  showActiveTrip(){
+    return this.http.get<any>(`${this.mainAddress}/show-active-trip/`);
+  }
+
+  loadAnnouncement(data: any){
+    return this.http.post<any>(`${this.mainAddress}/load-announcement/`, data);
+  }
+
+  unloadAnnouncement(data: any){
+    return this.http.post<any>(`${this.mainAddress}/unload-announcement/`, data);
   }
 
 
-  // signout() {
-  //   // remove user from local storage to log user out
-  //   this.http.get('http://127.0.0.1:8000/logout/' ).subscribe(data => {
-  //     localStorage.removeItem('currentUser');
-  //     this.currentUserSubject.next(null);
-  //   });
-  //   this.router.navigate(['/']);
-  // }
+
   //
   // // tslint:disable-next-line:typedef
   // new_Trip(data){
@@ -60,9 +92,7 @@ export class AuthenticationService {
   // }
   //
   // // tslint:disable-next-line:typedef
-  // add_Transaction(data){
-  //   return this.http.post<any>('http://127.0.0.1:8000/add-transaction/', data);
-  // }
+
   //
   // // tslint:disable-next-line:typedef
   // trip_participants(id){

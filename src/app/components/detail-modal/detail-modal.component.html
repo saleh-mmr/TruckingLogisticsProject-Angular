@@ -5,89 +5,86 @@
     <div class="border p-4 mb-3">
         <div class="row px-3 mb-3">
             <div class="row col-sm-4">
+                <mat-icon class="col-3 text-danger">location_on</mat-icon>
+                <p class="p-0 col-9">
+                    مبدا: <span><b>{{data.origin}}</b></span>
+              </p>
+            </div>
+            <div class="row col-sm-4 mb-3">
+                <mat-icon class="col-3 text-info">location_on</mat-icon>
+                <p class="p-0 col-9">
+                    مقصد: <span><b>{{data.destination}}</b></span>
+               </p>
+            </div>
+            <div class="row col-sm-4">
                 <mat-icon class="col-3">new_releases</mat-icon>
                 <p class="p-0 col-9">
-                    نوع بار : <span><b>شکستنی</b></span>
+                    نوع بار: <span><b>{{data.loadType}}</b></span>
                </p>
-            </div>
-            
-            <div class="row col-sm-4">
-                <mat-icon class="col-3">flag</mat-icon>
-                <p class="p-0 col-9">
-                    وضعیت بار : <span><b>شکستنی</b></span>
-               </p>
-            </div>
-            <div class="row col-sm-4">
-                <mat-icon class="col-3">assignment_late</mat-icon> 
-                <p class="p-0 col-9">
-                    کد رهگیری : <span><b>شکستنی</b></span>
-                </p>
             </div>
         </div>
         <div class="row px-3">
-            
             <div class="row col-sm-4">
                 <mat-icon class="col-3 text-warning">calendar_today</mat-icon>
                 <p class="p-0 col-9">
-                    تاریخ بارگیری : <span><b>شکستنی</b></span>
+                    تاریخ بارگیری: <span><b>{{data.loadingDate}}</b></span>
                </p>
             </div>
-            
             <div class="row col-sm-4">
                 <mat-icon class="col-3 text-warning">calendar_today</mat-icon>
                 <p class="p-0 col-9">
-                    تاریخ تحویل : <span><b>شکستنی</b></span>
+                    تاریخ تحویل: <span><b>{{data.unloadingDate}}</b></span>
                </p>
             </div>
-            
-            <div class="row col-sm-4">
+
+            <div class="row col-sm-4 mb-3">
                 <mat-icon class="col-3 text-danger">location_on</mat-icon>
                 <p class="p-0 col-9">
-                    <span><b>شکستنی</b></span>
-              </p>
+                    وزن بار : <span class="text-danger"><b>{{data.weight}}</b></span>
+               </p>
             </div>
+
         </div>
     </div>
     <div class="border px-4 pt-4">
         <div class="row px-3">
             <div class="row col-sm-4 mb-3">
-                <mat-icon class="col-3 text-danger">location_on</mat-icon>
-                <p class="p-0 col-9">
-                    مبدا بار : <span class="text-danger"><b>شکستنی</b></span>
-               </p>
-            </div>
-            
-            <div class="row col-sm-4 mb-3">
-                <mat-icon class="col-3 text-info">location_on</mat-icon>
-                <p class="p-0 col-9">
-                    مقصد بار : <span class="text-info"><b>شکستنی</b></span>
-               </p>
-            </div>
-            <div class="row col-sm-4 mb-3">
                 <mat-icon class="col-3">assignment_ind</mat-icon> 
                 <p class="p-0 col-9">
-                    فرستنده : <span><b>شکستنی</b></span>
+                    فرستنده: <span><b>{{data.senderName}}</b></span>
                 </p>
             </div>
             <div class="row col-sm-4 mb-3">
                 <mat-icon class="col-3">perm_contact_calendar</mat-icon>
                 <p class="p-0 col-9">
-                    گیرنده : <span><b>شکستنی</b></span>
+                    گیرنده: <span><b>{{data.receiverName}}</b></span>
                </p>
             </div>
-            
+            <div class="row col-sm-4">
+                <mat-icon class="col-3">flag</mat-icon>
+                <p class="p-0 col-9">
+                    ارزش بار: <span><b>{{data.value}}</b></span>
+               </p>
+            </div>
+        </div>
+        <div class="row px-3">
             <div class="row col-sm-4 mb-3">
                 <mat-icon class="col-3">stay_current_portrait</mat-icon>
                 <p class="p-0 col-9">
-                    تلفن فرستنده : <span><b>شکستنی</b></span>
+                    تلفن فرستنده: <span><b>{{data.senderPhone}}</b></span>
                </p>
             </div>
-            
             <div class="row col-sm-4 mb-3">
                 <mat-icon class="col-3">stay_current_portrait</mat-icon>
-                <p class="p-0 col-9"> تلفن گیرنده :
-                    <span><b>شکستنی</b></span>
+                <p class="p-0 col-9">
+                    تلفن گیرنده:<span><b>{{data.receiverPhone}}</b></span>
               </p>
+            </div>
+            <div class="row col-sm-4">
+                <mat-icon class="col-3">assignment_late</mat-icon> 
+                <p class="p-0 col-9">
+                    کد رهگیری: <span><b>{{data.reqid}}</b></span>
+                </p>
             </div>
         </div>
     </div>
@@ -99,19 +96,11 @@
                   <input
                     type="text"
                     maxlength="15"
-                    value="2000000" disabled
+                    value={{data.proposedPrice}} disabled
                     placeholder="تومان"
                     class="form-control"
                   />
                 </div>
-              </div>
-              <div class="col-lg-6 col-sm-6 pt-1">
-                  <button type="submit" class="default-btn mt-4 p-3 btn-sm">
-                      <span>
-                        ویرایش
-                        <i class="ri-send-plane-2-fill"></i>
-                      </span>
-                    </button>
               </div>
         </div>
           

@@ -16,9 +16,6 @@ export class SharedService {
     return this.type.value;
   }
 
-  setType(type:boolean){
-    this.type.next(type);
-  }
   setIsLogin(flag:boolean){
     if (flag) {
       localStorage.setItem('login','yes');
@@ -29,11 +26,10 @@ export class SharedService {
     
     localStorage.setItem('login','no');
     console.log(localStorage.getItem('login'));
-    
   }
 
   getIsLogin(){
-    if (localStorage.getItem('login')=='yes') {
+    if (localStorage.getItem('currentUser')) {
       return true;
     }
     return false;

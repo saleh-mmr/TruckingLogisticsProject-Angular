@@ -19,7 +19,6 @@ export class DispatcherSignInComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.shared.setType(false);
   }
   signIn(){
     this.shared.setPhone(this.signInForm.controls.phoneNumber.value);

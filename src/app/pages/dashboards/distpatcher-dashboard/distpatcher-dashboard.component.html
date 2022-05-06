@@ -7,7 +7,7 @@
 <div class="page-title-area" style="padding-top: 165px;">
   <div class="row px-5">
     <div class="col-3 py-4" 
-    style="background-color: white;height: 600px;box-shadow: 0px 2px 6px 0px #0000002b;
+    style="background-color: white;height: 640px;box-shadow: 0px 2px 6px 0px #0000002b;
     border-radius: 5px;">
       <div class="row mb-5">
         <div class="col-sm-12">
@@ -23,144 +23,321 @@
           </div>
         </div>
       </div>
-      <div class="px-4">
+      <div class="px-5">
         <div class="distpacher-list text-center">
-          <a class="text-center" (click)="changeSelected(1)" >جدید</a>
+          <a class="text-center" (click)="changeSelected(1)" >درخواست های جدید</a>
         </div>
         <div class="distpacher-list text-center">
-          <a class="text-center" (click)="changeSelected(2)" >قبول شده</a>
+          <a class="text-center" (click)="showActiveTrip()" >درخواست جاری</a>
         </div>
         <div class="distpacher-list text-center">
-          <a class="text-center" (click)="changeSelected(3)" >تحویل شده</a>
+          <a class="text-center" (click)="changeSelected(3)" >تحویل داده شده</a>
         </div>
         <div class="distpacher-list text-center">
-          <a class="text-center" (click)="changeSelected(4)" >پیام ها</a>
+          <a class="text-center" (click)="changeSelected(4)" >ماشین ها و بارگیر</a>
+        </div>
+        <div class="distpacher-list text-center">
+          <a class="text-center" (click)="changeSelected(5)" >پیام ها</a>
         </div>
       </div>
     </div>
-    <div class="col-9" style="overflow-y: scroll;
-    height: 600px;">
 
-    <!-- **************************************** -->
-      <div class="page-title" *ngIf="selected==1">
-        <ng-container *ngFor="let item of [1,2,3,4,5,6,7]">
-          <div class="container bg-white mylist">
-            <div class="p-4 row">
-              <div class="col-sm-9">
+
+
+    <div class="col-9" style="height: 640px;">
+
+      <!-- **************************************** -->
+      <div class="page-title" *ngIf="selected==4">
+        <div style="height: 240px;">
+          <form class="row border p-2 mb-4" style="border: none !important;"  [formGroup]="addTruckForm">
+            <legend class="mb-3">افزودن ماشین</legend>
+            <div class="col-lg-3 col-sm-3">
+              <div class="form-group">
+                <label class="form-label">مدل</label>
+                <input type="text" class="form-control" style="width: 90%"  formControlName="model"   />
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+              <div class="form-group">
+                <label class="form-label">سال ساخت</label>
+                <select  class="form-control" style="width: 90%"   formControlName="year" >
+                  <option value="" disabled selected>سال ساخت ماشین را انتخاب کنید</option>                  <option value="1401">1401</option>
+                  <option value="1400">1400</option>
+                  <option value="1399">1399</option>
+                  <option value="1398">1398</option>
+                  <option value="1397">1397</option>
+                  <option value="1396">1396</option>
+                  <option value="1395">1395</option>
+                  <option value="1394">1394</option>
+                  <option value="1393">1393</option>
+                  <option value="1392">1392</option>
+                  <option value="1391">1391</option>
+                  <option value="1390">1390</option>
+                  <option value="1389">1389</option>
+                  <option value="1388">1388</option>
+                  <option value="1387">1387</option>
+                  <option value="1386">1386</option>
+                  <option value="1385">1385</option>
+                  <option value="1384">1384</option>
+                  <option value="1383">1383</option>
+                  <option value="1382">1382</option>
+                  <option value="1381">1381</option>
+                  <option value="1380">1380</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+              <div class="form-group">
+                <label class="form-label">شماره پلاک</label>
+                <input type="text" class="form-control" style="width: 90%"   formControlName="tag" />
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+              <div class="form-group">
+                <label class="form-label">نوع بارگیر</label>
+                <select  class="form-control" style="width: 90%"  formControlName="classification"  >
+                  <option value="" disabled selected>نوع بارگیر را انتخاب کنید</option>
+                  <option value="khavar">خاور</option>
+                  <option value="otaghdar">اطاق دار</option>
+                  <option value="compresi">کمپرسی</option>
+                  <option value="mosaghaf">مسقف</option>
+                  <option value="tankerdar">تانکر دار</option>
+                  <option value="yakhchaldar">یخچال دار</option>
+                  <option value="baghaldar">بغلدار</option>
+                  <option value="kafi">کفی</option>
+                  <option value="transitchadori">ترانزیت چادری</option>
+                </select>
+              </div>
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+              <button class="home-header-btn mx-1" (click)="addTruck()">افزودن</button>
+            </div>
+
+          </form>
+        </div>
+
+        <div style="overflow-y: scroll; height: 400px;">
+          <ng-container *ngFor="let item of truckList">
+            <div class="container bg-white mylist">
+              <div class="p-4 row">
                 <div class="row">
-                  <div class="col-sm-4 py-2">
-                    <p class="p-0 col-9">
-                      مذاکره : <span><b>قابل مذاکره</b></span>
-                    </p>
+                  <div class="col-3 py-3 row">
+                    <div class="col-2">
+                      <i>
+                        <img src="../../../../assets/images/truckicon.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10">
+                      <p style="font-size: 18px;">
+                        مدل: <span><b style="font-size: 18px;font-weight: bolder;">{{item.model}}</b></span>
+                    </div>
                   </div>
-                  <div class="row col-sm-4 py-2">
-                    <mat-icon class="col-3 text-warning">calendar_today</mat-icon>
-                    <p class="p-0 col-9">
-                      تاریخ بارگیری : <span><b>شکستنی</b></span>
-                    </p>
+                  <div class="col-3 py-3 row">
+                    <div class="col-2">
+                      <i>
+                        <img src="../../../../assets/images/year.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10">
+                      <p style="font-size: 18px;">
+                        سال ساخت: <span><b style="font-size: 18px;font-weight: bolder;">{{item.year}}</b></span>
+                    </div>
                   </div>
-                  <div class="row col-sm-4 py-2">
-                    <mat-icon class="col-3 text-info">location_on</mat-icon>
-                    <p class="p-0 col-9">
-                      مبدا : <span><b>شکستنی</b></span>
-                    </p>
+                  <div class="col-3 py-3 row">
+                    <div class="col-2">
+                      <i>
+                        <img src="../../../../assets/images/carplate.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10">
+                      <p style="font-size: 18px;">
+                        پلاک: <span><b style="font-size: 18px;font-weight: bolder;">{{item.tag}}</b></span>
+                    </div>
                   </div>
-                  <div class="col-sm-4 py-2">
-                      <p class="p-0 col-9">
-                        تاریخ تحویل : <span><b>شکستنی</b></span>
-                      </p>
+                  <div class="col-3 py-2 row">
+                    <div class="col-2">
+                      <i>
+                        <img src="../../../../assets/images/carrier.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10">
+                      <p style="font-size: 18px;">
+                        نوع بارگیر: <span><b style="font-size: 18px;font-weight: bolder;">{{item.classification}}</b></span>
+                    </div>
                   </div>
-                  <div class="row col-sm-4 py-2">
-                    <mat-icon class="col-3 text-warning">calendar_today</mat-icon>
-                    <p class="p-0 col-9">
-                      تاریخ تحویل : <span><b>شکستنی</b></span>
-                    </p>
-                  </div>
-                  
-                  <div class="row col-sm-4 py-2">
-                    <mat-icon class="col-3 text-danger">location_on</mat-icon>
-                    <p class="p-0 col-9">
-                      مقصد : <span><b>شکستنی</b></span>
-                    </p>
-                  </div>
-                  <div class="col-sm-4 py-2">
-                      <p class="p-0 col-9">
-                        تاریخ تحویل : <span><b>شکستنی</b></span>
-                      </p>
-                  </div>
-                  <div class="col-sm-4 py-2">
-                    <p class="p-0 col-9">
-                      تاریخ تحویل : <span><b>شکستنی</b></span>
-                    </p>
-                  </div>
-                  
                 </div>
               </div>
-              <div class="col-sm-3 pt-1">
-                <button class="btn btn-danger btn-sm py-3 col-12  mb-3"> جزئیات درخواست </button>
-                <button class="btn btn-success btn-sm col-12 py-3">قبول درخواست</button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- **************************************** -->
+      <div class="page-title" *ngIf="selected==1">
+        <ng-container *ngFor="let reqitem of avaliableRequestsList">
+          <div class="container bg-white mylist">
+            <div class="p-4 row">
+
+              <!-- DIS -->
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-sm-6 py-2 row">
+                    <div class="col-2" style="text-align: left;">
+                      <i>
+                        <img src="../../../../assets/images/destination2.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10" style="margin-right: -15px;">
+                      <p style="font-size: 18px;">
+                        مبدا: <span><b style="font-size: 18px;font-weight: bolder;">{{reqitem.origin}}</b></span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 py-2 row">
+                    <div class="col-2" style="text-align: left;">
+                      <i>
+                        <img src="../../../../assets/images/destination1.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10" style="margin-right: -15px;">
+                      <p style="font-size: 18px;">
+                        مقصد:
+                        <span>
+                          <b style="font-size: 18px;font-weight: bolder;">{{reqitem.destination}}</b>
+                        </span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 py-2 row">
+                    <div class="col-2" style="text-align: left;">
+                      <i>
+                        <img src="../../../../assets/images/loadingdate1.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10" style="margin-right: -15px;">
+                      <p style="font-size: 18px;">
+                        تاریخ بارگیری:
+                        <span>
+                          <b style="font-size: 18px;font-weight: bolder;">{{reqitem.loading_date}}</b>
+                        </span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 py-2 row">
+                    <div class="col-2" style="text-align: left;">
+                      <i>
+                        <img src="../../../../assets/images/unloadingdate.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10" style="margin-right: -15px;">
+                      <p style="font-size: 18px;">
+                        تاریخ تخلیه:
+                        <span>
+                          <b style="font-size: 18px;font-weight: bolder;">{{reqitem.unloading_date}}</b>
+                        </span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 py-2 row">
+                    <div class="col-2" style="text-align: left;">
+                      <i>
+                        <img src="../../../../assets/images/proposedprice.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10" style="margin-right: -15px;">
+                      <p style="font-size: 18px;">
+                        مبلغ پیشنهادی:
+                        <span>
+                          <b style="font-size: 18px;font-weight: bolder;">{{reqitem.proposed_price}}</b>
+                        </span>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <!-- Button -->
+              <div class="col-sm-3 pt-1">
+                
+                <button class="btn btn-danger btn-sm py-3 col-12  mb-3" (click)="openDetailModal(reqitem.reqid)"> جزئیات درخواست </button>
+                <button class="btn btn-success btn-sm col-12 py-3" (click)="acceptRequest(reqitem.reqid)">قبول درخواست</button>
+              </div>
+
+
             </div>
           </div>
         </ng-container>
       </div>
+
       <!-- /////////////////////////////////////////// -->
       <div class="page-title" *ngIf="selected==2">
-        <ng-container *ngFor="let item of [1,2]">
+        <ng-container *ngFor="let trip of activeTrip">
           <div class="container bg-white mylist">
             <div class="p-4 row">
+
               <div class="col-sm-9">
                 <div class="row">
-                  <div class="col-sm-4 py-2">
-                    <p class="p-0 col-9">
-                      مذاکره : <span><b>قابل مذاکره</b></span>
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/waybill.png" alt="">
+                    <p class="p-0 col-10">
+                      شماره بارنامه: <span><b>{{trip.tripid}}</b></span>
                     </p>
                   </div>
                   <div class="row col-sm-4 py-2">
-                    <mat-icon class="col-3 text-warning">calendar_today</mat-icon>
+                    <img class="col-2" src="../../../../assets/images/status.png" alt="">
                     <p class="p-0 col-9">
-                      تاریخ بارگیری : <span><b>شکستنی</b></span>
+                      وضعیت بار: <span><b>{{trip.status}}</b></span>
                     </p>
                   </div>
                   <div class="row col-sm-4 py-2">
-                    <mat-icon class="col-3 text-info">location_on</mat-icon>
+                    <img class="col-2" src="../../../../assets/images/carrier2.png" alt="">
                     <p class="p-0 col-9">
-                      مبدا : <span><b>شکستنی</b></span>
+                      ماشین حمل: <span><b>{{trip.carrierTag}}</b></span>
                     </p>
                   </div>
-                  <div class="col-sm-4 py-2">
-                      <p class="p-0 col-9">
-                        تاریخ تحویل : <span><b>شکستنی</b></span>
-                      </p>
-                  </div>
-                  <div class="row col-sm-4 py-2">
-                    <mat-icon class="col-3 text-warning">calendar_today</mat-icon>
-                    <p class="p-0 col-9">
-                      تاریخ تحویل : <span><b>شکستنی</b></span>
-                    </p>
-                  </div>
-                  
-                  <div class="row col-sm-4 py-2">
-                    <mat-icon class="col-3 text-danger">location_on</mat-icon>
-                    <p class="p-0 col-9">
-                      مقصد : <span><b>شکستنی</b></span>
-                    </p>
-                  </div>
-                  <div class="col-sm-4 py-2">
-                      <p class="p-0 col-9">
-                        تاریخ تحویل : <span><b>شکستنی</b></span>
-                      </p>
-                  </div>
-                  <div class="col-sm-4 py-2">
-                    <p class="p-0 col-9">
-                      تاریخ تحویل : <span><b>شکستنی</b></span>
-                    </p>
-                  </div>
-                  
                 </div>
+
+                <div class="row">
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/sender.png" alt="">
+                    <p class="p-0 col-9">
+                      فرستنده: <span><b>{{trip.requestSenderName}}</b></span>
+                    </p>
+                  </div>
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/receiver.png" alt="">
+                    <p class="p-0 col-9">
+                      گیرنده: <span><b>{{trip.requestReceiverName}}</b></span>
+                    </p>
+                  </div>
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/destination2.png" alt="">
+                      <p class="p-0 col-9">
+                      مبدا بار: <span><b>{{trip.requestOrigin}}</b></span>
+                      </p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/phone.png" alt="">
+                    <p class="p-0 col-9">
+                      شماره تماس فرستنده: <span><b>{{trip.requestSenderPhone}}</b></span>
+                    </p>
+                </div>
+                <div class="row col-sm-4 py-2">
+                  <img class="col-2" src="../../../../assets/images/phone.png" alt="">
+                  <p class="p-0 col-9">
+                    شماره تماس گیرنده: <span><b>{{trip.requestReceiverPhone}}</b></span>
+                  </p>
+                </div>
+                <div class="row col-sm-4 py-2">
+                  <img class="col-2" src="../../../../assets/images/destination1.png" alt="">
+                  <p class="p-0 col-9">
+                    مقصد بار: <span><b>{{trip.requestDestination}}</b></span>
+                  </p>
+                </div>
+                </div> 
               </div>
+
               <div class="col-sm-3 pt-1">
-                <button class="btn btn-danger btn-sm py-3 col-12  mb-3"> جزئیات بار </button>
+                <button class="btn btn-danger btn-sm py-3 col-12  mb-3" style="background-color: goldenrod;border: goldenrod;" (click)="loadAnnouncement(trip.tripid)"> اعلام بارگیری </button>
+                <button class="btn btn-danger btn-sm py-3 col-12  mb-3" style="background-color: darkgreen;border: darkgreen;" (click)="unloadAnnouncement(trip.tripid)"> اعلام تخلیه </button>
               </div>
             </div>
           </div>
@@ -173,7 +350,7 @@
         <app-dynamic-table [columns]="tab1"></app-dynamic-table>
       </div>
       <!-- ****************************************** -->
-      <div class="page-title" *ngIf="selected==4">
+      <div class="page-title" *ngIf="selected==5">
         <ng-container *ngFor="let item of [1,2]">
           <div class="container bg-white mylist">
             <div class="p-4 row">

@@ -24,7 +24,6 @@ export class SignInComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.shared.setType(true);
   }
   continue(){
     this.shared.setPhone(this.phoneNumber?.value)

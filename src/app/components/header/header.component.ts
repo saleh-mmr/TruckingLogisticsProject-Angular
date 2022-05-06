@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -9,20 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public shared:SharedService,private router:Router) { }
+  constructor(public shared:SharedService,private router:Router, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
   profile(){
-    if (this.shared.getType()) 
-      this.router.navigate(['user-dashboard']);
+    if (localStorage.getItem('currentUser[type]')) 
+      this.router.navigate(['driver-dashboard']);
     else 
-      this.router.navigate(['dispatcher-dashboard']);
+      this.router.navigate(['applicant-dashboard']);
   }
 
   logout(){
-    this.shared.setIsLogin(false);
+    this.auth.signout();
     this.router.navigate(['/']);
   }
 
