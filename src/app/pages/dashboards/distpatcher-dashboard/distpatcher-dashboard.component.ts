@@ -31,11 +31,17 @@ export class DistpatcherDashboardComponent implements OnInit {
   truckList: any;
   avaliableRequestsList: any;
   phone="";
+  fullName: any;
   initialImage="";
-  selected = 1;
+  selected: any;
   addTruckForm: FormGroup;
   detailResult: any;
   activeTrip: any;
+  finishedTrip: any;
+  tripStatus: any;
+  avaliableRequestsListFlag: any;
+  activeTripListFlag: any;
+  finishedTripFlag: any;
 
   constructor(
     private router:Router,
@@ -54,23 +60,31 @@ export class DistpatcherDashboardComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.auth.getDriverInfo().subscribe((res:any)=>{
+      this.phone = res['list']['driverPhone']
+      this.fullName = res['list']['driverName']
+    });
     this.auth.showTrucks().subscribe((res: any)=>{
-      this.truckList = res['list'];
+      if(res['flag']){
+        this.selected = 1;
+      }
+      else{
+        this.selected = 4;
+      }
     });
     this.auth.showRequestsForDriver().subscribe((result: any)=>{
       this.avaliableRequestsList = result['list'];
-      console.log(this.avaliableRequestsList);
+      this.avaliableRequestsListFlag = result['flag'];
     });
-    this.phone=this.shared.getPhone();
     this.initialImage=this.shared.getImg();
   }
 
-  addTruck(){
-    if(this.addTruckForm.valid){
-      this.auth.addTruck(this.addTruckForm.value).subscribe((res: any)=>{
-      });
-    }
-
+  showRequestsForDriver(){
+    this.selected = 1;
+    this.auth.showRequestsForDriver().subscribe((result: any)=>{
+      this.avaliableRequestsList = result['list'];
+      this.avaliableRequestsListFlag = result['flag'];
+    });
   }
 
   openDetailModal(parameter:any){
@@ -94,26 +108,54 @@ export class DistpatcherDashboardComponent implements OnInit {
   }
 
   showActiveTrip(){
-    this.changeSelected(2);
+    this.selected = 2;
     this.auth.showActiveTrip().subscribe((res: any)=>{
       this.activeTrip = res['list'];
-      console.log(this.activeTrip);
+      this.activeTripListFlag = res['flag'];
     });
   }
-
 
   loadAnnouncement(data: any){
-    this.auth.loadAnnouncement({'tripId': data}).subscribe((res:any)=>{
-      
+    this.auth.loadAnnouncement({'tripId': data.tripid}).subscribe((res:any)=>{
+      data.status = "بارگیری شده";
+    });
+
+  }
+
+  unloadAnnouncement(data: any, list:any){
+    this.auth.unloadAnnouncement({'tripId': data.tripid}).subscribe((res:any)=>{
+      list.pop();
+      this.activeTripListFlag = false;      
     });
   }
 
-  unloadAnnouncement(data: any){
-    this.auth.unloadAnnouncement({'tripId': data}).subscribe((res:any)=>{
-      
+  showFinishedTrip(){
+    this.selected = 3;
+    this.auth.showFinishedTrip().subscribe((res: any)=>{
+      this.finishedTrip = res['list'];
+      this.finishedTripFlag = res['flag'];
     });
   }
 
+  showTrucks(){
+    this.selected = 4;
+    this.auth.showTrucks().subscribe((res: any)=>{
+      this.truckList = res['list'];
+    });
+  }
+
+  addTruck(){
+    if(this.addTruckForm.valid){
+      this.auth.addTruck(this.addTruckForm.value).subscribe((res: any)=>{
+        this.truckList.push(this.addTruckForm.value);
+        this.addTruckForm.controls.modal.setValue('');
+        this.addTruckForm.controls.tag.setValue('');
+        this.addTruckForm.controls.year.setValue('');
+        this.addTruckForm.controls.classification.setValue('');
+      });
+    }
+
+  }
 
 
 

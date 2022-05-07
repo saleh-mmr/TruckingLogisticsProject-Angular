@@ -16,7 +16,7 @@
         </div>
         <div class="col-sm-12">
           <div class="page-title-content pt-4 text-center">
-            <h4>داشبورد من</h4>
+            <h4>{{fullName}}</h4>
             <ul>
               <li class="active">{{phone}}</li>
             </ul>
@@ -25,16 +25,16 @@
       </div>
       <div class="px-5">
         <div class="distpacher-list text-center">
-          <a class="text-center" (click)="changeSelected(1)" >درخواست های جدید</a>
+          <a class="text-center" (click)="showRequestsForDriver()" >درخواست های جدید</a>
         </div>
         <div class="distpacher-list text-center">
           <a class="text-center" (click)="showActiveTrip()" >درخواست جاری</a>
         </div>
         <div class="distpacher-list text-center">
-          <a class="text-center" (click)="changeSelected(3)" >تحویل داده شده</a>
+          <a class="text-center" (click)="showFinishedTrip()" >تحویل داده شده</a>
         </div>
         <div class="distpacher-list text-center">
-          <a class="text-center" (click)="changeSelected(4)" >ماشین ها و بارگیر</a>
+          <a class="text-center" (click)="showTrucks()" >ماشین ها و بارگیر</a>
         </div>
         <div class="distpacher-list text-center">
           <a class="text-center" (click)="changeSelected(5)" >پیام ها</a>
@@ -47,133 +47,12 @@
     <div class="col-9" style="height: 640px;">
 
       <!-- **************************************** -->
-      <div class="page-title" *ngIf="selected==4">
-        <div style="height: 240px;">
-          <form class="row border p-2 mb-4" style="border: none !important;"  [formGroup]="addTruckForm">
-            <legend class="mb-3">افزودن ماشین</legend>
-            <div class="col-lg-3 col-sm-3">
-              <div class="form-group">
-                <label class="form-label">مدل</label>
-                <input type="text" class="form-control" style="width: 90%"  formControlName="model"   />
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-3">
-              <div class="form-group">
-                <label class="form-label">سال ساخت</label>
-                <select  class="form-control" style="width: 90%"   formControlName="year" >
-                  <option value="" disabled selected>سال ساخت ماشین را انتخاب کنید</option>                  <option value="1401">1401</option>
-                  <option value="1400">1400</option>
-                  <option value="1399">1399</option>
-                  <option value="1398">1398</option>
-                  <option value="1397">1397</option>
-                  <option value="1396">1396</option>
-                  <option value="1395">1395</option>
-                  <option value="1394">1394</option>
-                  <option value="1393">1393</option>
-                  <option value="1392">1392</option>
-                  <option value="1391">1391</option>
-                  <option value="1390">1390</option>
-                  <option value="1389">1389</option>
-                  <option value="1388">1388</option>
-                  <option value="1387">1387</option>
-                  <option value="1386">1386</option>
-                  <option value="1385">1385</option>
-                  <option value="1384">1384</option>
-                  <option value="1383">1383</option>
-                  <option value="1382">1382</option>
-                  <option value="1381">1381</option>
-                  <option value="1380">1380</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-3">
-              <div class="form-group">
-                <label class="form-label">شماره پلاک</label>
-                <input type="text" class="form-control" style="width: 90%"   formControlName="tag" />
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-3">
-              <div class="form-group">
-                <label class="form-label">نوع بارگیر</label>
-                <select  class="form-control" style="width: 90%"  formControlName="classification"  >
-                  <option value="" disabled selected>نوع بارگیر را انتخاب کنید</option>
-                  <option value="khavar">خاور</option>
-                  <option value="otaghdar">اطاق دار</option>
-                  <option value="compresi">کمپرسی</option>
-                  <option value="mosaghaf">مسقف</option>
-                  <option value="tankerdar">تانکر دار</option>
-                  <option value="yakhchaldar">یخچال دار</option>
-                  <option value="baghaldar">بغلدار</option>
-                  <option value="kafi">کفی</option>
-                  <option value="transitchadori">ترانزیت چادری</option>
-                </select>
-              </div>
-            </div>
-            <div style="text-align: center;margin-top: 20px;">
-              <button class="home-header-btn mx-1" (click)="addTruck()">افزودن</button>
-            </div>
-
-          </form>
-        </div>
-
-        <div style="overflow-y: scroll; height: 400px;">
-          <ng-container *ngFor="let item of truckList">
-            <div class="container bg-white mylist">
-              <div class="p-4 row">
-                <div class="row">
-                  <div class="col-3 py-3 row">
-                    <div class="col-2">
-                      <i>
-                        <img src="../../../../assets/images/truckicon.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
-                      </i>
-                    </div>
-                    <div class="col-10">
-                      <p style="font-size: 18px;">
-                        مدل: <span><b style="font-size: 18px;font-weight: bolder;">{{item.model}}</b></span>
-                    </div>
-                  </div>
-                  <div class="col-3 py-3 row">
-                    <div class="col-2">
-                      <i>
-                        <img src="../../../../assets/images/year.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
-                      </i>
-                    </div>
-                    <div class="col-10">
-                      <p style="font-size: 18px;">
-                        سال ساخت: <span><b style="font-size: 18px;font-weight: bolder;">{{item.year}}</b></span>
-                    </div>
-                  </div>
-                  <div class="col-3 py-3 row">
-                    <div class="col-2">
-                      <i>
-                        <img src="../../../../assets/images/carplate.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
-                      </i>
-                    </div>
-                    <div class="col-10">
-                      <p style="font-size: 18px;">
-                        پلاک: <span><b style="font-size: 18px;font-weight: bolder;">{{item.tag}}</b></span>
-                    </div>
-                  </div>
-                  <div class="col-3 py-2 row">
-                    <div class="col-2">
-                      <i>
-                        <img src="../../../../assets/images/carrier.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
-                      </i>
-                    </div>
-                    <div class="col-10">
-                      <p style="font-size: 18px;">
-                        نوع بارگیر: <span><b style="font-size: 18px;font-weight: bolder;">{{item.classification}}</b></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ng-container>
+      <div  class="page-title" *ngIf="selected==1 && !avaliableRequestsListFlag"  style="position: relative; height: 400px;">
+        <div style="  position: absolute;top: 50%;left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
+          <p>درخواست های مناسب شما یافت نشد</p>
         </div>
       </div>
-
-      <!-- **************************************** -->
-      <div class="page-title" *ngIf="selected==1">
+      <div class="page-title" *ngIf="selected==1 && avaliableRequestsListFlag">
         <ng-container *ngFor="let reqitem of avaliableRequestsList">
           <div class="container bg-white mylist">
             <div class="p-4 row">
@@ -263,9 +142,13 @@
           </div>
         </ng-container>
       </div>
-
       <!-- /////////////////////////////////////////// -->
-      <div class="page-title" *ngIf="selected==2">
+      <div  class="page-title" *ngIf="selected==2 && !activeTripListFlag"  style="position: relative; height: 400px;">
+        <div style="  position: absolute;top: 50%;left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
+          <p>در حال حاضر سفر فعالی ندارید.</p>
+        </div>
+      </div>
+      <div class="page-title" *ngIf="selected==2 && activeTripListFlag">
         <ng-container *ngFor="let trip of activeTrip">
           <div class="container bg-white mylist">
             <div class="p-4 row">
@@ -336,18 +219,221 @@
               </div>
 
               <div class="col-sm-3 pt-1">
-                <button class="btn btn-danger btn-sm py-3 col-12  mb-3" style="background-color: goldenrod;border: goldenrod;" (click)="loadAnnouncement(trip.tripid)"> اعلام بارگیری </button>
-                <button class="btn btn-danger btn-sm py-3 col-12  mb-3" style="background-color: darkgreen;border: darkgreen;" (click)="unloadAnnouncement(trip.tripid)"> اعلام تخلیه </button>
+                <button class="btn btn-danger btn-sm py-3 col-12  mb-3" style="background-color: goldenrod;border: goldenrod;" (click)="loadAnnouncement(trip)"> اعلام بارگیری </button>
+                <button class="btn btn-danger btn-sm py-3 col-12  mb-3" style="background-color: darkgreen;border: darkgreen;" (click)="unloadAnnouncement(trip,activeTrip)"> اعلام تخلیه </button>
               </div>
             </div>
           </div>
         </ng-container>
       </div>
       <!-- ************************************************ -->
-      <div class="page-title py-4" *ngIf="selected==3" 
-      style="background-color: white;min-height: 300px;border-radius: 5px;
-      box-shadow: 0px 2px 6px 0px #0000002b;">
-        <app-dynamic-table [columns]="tab1"></app-dynamic-table>
+      <div  class="page-title" *ngIf="selected==3 && !finishedTripFlag"  style="position: relative; height: 400px;">
+        <div style="  position: absolute;top: 50%;left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
+          <p>هیچ سفری به اتمام نرسیده است.</p>
+        </div>
+      </div>
+      <div class="page-title" *ngIf="selected==3 && finishedTripFlag">
+
+        <ng-container *ngFor="let trip of finishedTrip">
+          <div class="container bg-white mylist">
+            <div class="p-4 row">
+
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/waybill.png" alt="">
+                    <p class="p-0 col-10">
+                      شماره بارنامه: <span><b>{{trip.tripid}}</b></span>
+                    </p>
+                  </div>
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/status.png" alt="">
+                    <p class="p-0 col-9">
+                      وضعیت بار: <span><b>{{trip.status}}</b></span>
+                    </p>
+                  </div>
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/carrier2.png" alt="">
+                    <p class="p-0 col-9">
+                      ماشین حمل: <span><b>{{trip.carrierTag}}</b></span>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/sender.png" alt="">
+                    <p class="p-0 col-9">
+                      فرستنده: <span><b>{{trip.requestSenderName}}</b></span>
+                    </p>
+                  </div>
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/receiver.png" alt="">
+                    <p class="p-0 col-9">
+                      گیرنده: <span><b>{{trip.requestReceiverName}}</b></span>
+                    </p>
+                  </div>
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/destination2.png" alt="">
+                      <p class="p-0 col-9">
+                      مبدا بار: <span><b>{{trip.requestOrigin}}</b></span>
+                      </p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="row col-sm-4 py-2">
+                    <img class="col-2" src="../../../../assets/images/phone.png" alt="">
+                    <p class="p-0 col-9">
+                      شماره تماس فرستنده: <span><b>{{trip.requestSenderPhone}}</b></span>
+                    </p>
+                </div>
+                <div class="row col-sm-4 py-2">
+                  <img class="col-2" src="../../../../assets/images/phone.png" alt="">
+                  <p class="p-0 col-9">
+                    شماره تماس گیرنده: <span><b>{{trip.requestReceiverPhone}}</b></span>
+                  </p>
+                </div>
+                <div class="row col-sm-4 py-2">
+                  <img class="col-2" src="../../../../assets/images/destination1.png" alt="">
+                  <p class="p-0 col-9">
+                    مقصد بار: <span><b>{{trip.requestDestination}}</b></span>
+                  </p>
+                </div>
+                </div> 
+              </div>
+
+              <div class="col-sm-3 pt-1">
+                <button class="btn btn-danger btn-sm py-3 col-12  mb-3" (click)="openDetailModal(trip.requestid)"> جزئیات درخواست </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>      
+      </div>
+      <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+      <div class="page-title" *ngIf="selected==4">
+        <div style="height: 240px;">
+          <form class="row border p-2 mb-4" style="border: none !important;"  [formGroup]="addTruckForm">
+            <legend class="mb-3">افزودن ماشین</legend>
+            <div class="col-lg-3 col-sm-3">
+              <div class="form-group">
+                <label class="form-label">مدل</label>
+                <input type="text" class="form-control" style="width: 90%"  formControlName="model"   />
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+              <div class="form-group">
+                <label class="form-label">سال ساخت</label>
+                <select  class="form-control" style="width: 90%"   formControlName="year" >
+                  <option value="" disabled selected>سال ساخت ماشین را انتخاب کنید</option>                  <option value="1401">1401</option>
+                  <option value="1400">1400</option>
+                  <option value="1399">1399</option>
+                  <option value="1398">1398</option>
+                  <option value="1397">1397</option>
+                  <option value="1396">1396</option>
+                  <option value="1395">1395</option>
+                  <option value="1394">1394</option>
+                  <option value="1393">1393</option>
+                  <option value="1392">1392</option>
+                  <option value="1391">1391</option>
+                  <option value="1390">1390</option>
+                  <option value="1389">1389</option>
+                  <option value="1388">1388</option>
+                  <option value="1387">1387</option>
+                  <option value="1386">1386</option>
+                  <option value="1385">1385</option>
+                  <option value="1384">1384</option>
+                  <option value="1383">1383</option>
+                  <option value="1382">1382</option>
+                  <option value="1381">1381</option>
+                  <option value="1380">1380</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+              <div class="form-group">
+                <label class="form-label">شماره پلاک</label>
+                <input type="text" class="form-control" style="width: 90%"   formControlName="tag" />
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+              <div class="form-group">
+                <label class="form-label">نوع بارگیر</label>
+                <select  class="form-control" style="width: 90%"  formControlName="classification"  >
+                  <option value="" disabled selected>نوع بارگیر را انتخاب کنید</option>
+                  <option value="خاور">خاور</option>
+                  <option value="اطاقدار">اطاقدار</option>
+                  <option value="کمپرسی">کمپرسی</option>
+                  <option value="مسقف">مسقف</option>
+                  <option value="تانکردار">تانکردار</option>
+                  <option value="یخچالدار">یخچالدار</option>
+                  <option value="بغلدار">بغلدار</option>
+                  <option value="کفی">کفی</option>
+                  <option value="چادری">چادری</option>
+                </select>
+              </div>
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+              <button class="home-header-btn mx-1" (click)="addTruck()">افزودن</button>
+            </div>
+
+          </form>
+        </div>
+
+        <div style="overflow-y: scroll; height: 400px;">
+          <ng-container *ngFor="let item of truckList">
+            <div class="container bg-white mylist">
+              <div class="p-4 row">
+                <div class="row">
+                  <div class="col-3 py-3 row">
+                    <div class="col-2">
+                      <i>
+                        <img src="../../../../assets/images/truckicon.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10">
+                      <p style="font-size: 18px;">
+                        مدل: <span><b style="font-size: 18px;font-weight: bolder;">{{item.model}}</b></span>
+                    </div>
+                  </div>
+                  <div class="col-3 py-3 row">
+                    <div class="col-2">
+                      <i>
+                        <img src="../../../../assets/images/year.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10">
+                      <p style="font-size: 18px;">
+                        سال ساخت: <span><b style="font-size: 18px;font-weight: bolder;">{{item.year}}</b></span>
+                    </div>
+                  </div>
+                  <div class="col-3 py-3 row">
+                    <div class="col-2">
+                      <i>
+                        <img src="../../../../assets/images/carplate.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10">
+                      <p style="font-size: 18px;">
+                        پلاک: <span><b style="font-size: 18px;font-weight: bolder;">{{item.tag}}</b></span>
+                    </div>
+                  </div>
+                  <div class="col-3 py-2 row">
+                    <div class="col-2">
+                      <i>
+                        <img src="../../../../assets/images/carrier.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                      </i>
+                    </div>
+                    <div class="col-10">
+                      <p style="font-size: 18px;">
+                        نوع بارگیر: <span><b style="font-size: 18px;font-weight: bolder;">{{item.classification}}</b></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
       </div>
       <!-- ****************************************** -->
       <div class="page-title" *ngIf="selected==5">

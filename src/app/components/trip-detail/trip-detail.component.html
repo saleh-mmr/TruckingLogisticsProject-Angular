@@ -1,0 +1,107 @@
+<div class="">
+    <header>
+        <h4>جزئیات درخواست</h4>
+    </header>
+    <div class="border p-4 mb-3">
+        <div class="row px-3 mb-3">
+            <div class="row col-sm-4">
+                <mat-icon class="col-3 text-danger">location_on</mat-icon>
+                <p class="p-0 col-9">
+                    مبدا: <span><b>{{data.origin}}</b></span>
+              </p>
+            </div>
+            <div class="row col-sm-4 mb-3">
+                <mat-icon class="col-3 text-info">location_on</mat-icon>
+                <p class="p-0 col-9">
+                    مقصد: <span><b>{{data.destination}}</b></span>
+               </p>
+            </div>
+            <div class="row col-sm-4">
+                <mat-icon class="col-3">new_releases</mat-icon>
+                <p class="p-0 col-9">
+                    نوع بار: <span><b>{{data.loadType}}</b></span>
+               </p>
+            </div>
+        </div>
+        <div class="row px-3">
+            <div class="row col-sm-4">
+                <mat-icon class="col-3 text-warning">calendar_today</mat-icon>
+                <p class="p-0 col-9">
+                    تاریخ بارگیری: <span><b>{{data.loadingDate}}</b></span>
+               </p>
+            </div>
+            <div class="row col-sm-4">
+                <mat-icon class="col-3 text-warning">calendar_today</mat-icon>
+                <p class="p-0 col-9">
+                    تاریخ تحویل: <span><b>{{data.unloadingDate}}</b></span>
+               </p>
+            </div>
+            <div class="row col-sm-4 mb-3">
+                <mat-icon class="col-3 text-danger">location_on</mat-icon>
+                <p class="p-0 col-9">
+                    وزن بار : <span class="text-danger"><b>{{data.weight}}</b></span>
+               </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="border px-4 pt-4">
+        <div class="row px-3">
+            <div class="row col-sm-4 mb-3">
+                <mat-icon class="col-3">assignment_ind</mat-icon> 
+                <p class="p-0 col-9">
+                    راننده: <span><b>{{data.driverName}}</b></span>
+                </p>
+            </div>
+            <div class="row col-sm-4 mb-3">
+                <mat-icon class="col-3">perm_contact_calendar</mat-icon>
+                <p class="p-0 col-9">
+                    مدل ماشین: <span><b>{{data.carrierModel}}</b></span>
+               </p>
+            </div>
+            <div class="row col-sm-4">
+                <mat-icon class="col-3">flag</mat-icon>
+                <p class="p-0 col-9">
+                    پلاک: <span><b>{{data.carrierTag}}</b></span>
+               </p>
+            </div>
+        </div>
+        <div class="row px-3">
+            <div class="row col-sm-4 mb-3">
+                <mat-icon class="col-3">stay_current_portrait</mat-icon>
+                <p class="p-0 col-9">
+                    تلفن راننده: <span><b>{{data.driverPhone}}</b></span>
+               </p>
+            </div>
+            <div class="row col-sm-4 mb-3">
+                <mat-icon class="col-3">stay_current_portrait</mat-icon>
+                <p class="p-0 col-9">
+                    نوع بارگیر:<span><b>{{data.carrierClass}}</b></span>
+              </p>
+            </div>
+            <div class="row col-sm-4">
+                <mat-icon class="col-3">assignment_late</mat-icon> 
+                <p class="p-0 col-9">
+                    وضعیت بار: <span><b>{{data.tripStatus}}</b></span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="border px-4 pt-4">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6">
+                <div class="form-group">
+                  <label class="form-label">هزینه تمام شده</label>
+                  <input
+                    type="text"
+                    maxlength="15"
+                    value={{data.proposedPrice}} disabled
+                    placeholder="تومان"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+        </div>
+          
+    </div>
+</div>

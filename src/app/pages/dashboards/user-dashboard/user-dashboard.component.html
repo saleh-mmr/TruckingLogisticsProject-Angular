@@ -31,13 +31,318 @@
     <div class="p-4">
       <mat-tab-group  mat-stretch-tabs>
         <mat-tab label="درجریان جذب">
-          <app-dynamic-table [columns]="tab1"></app-dynamic-table>
+          <div style="height: 440px;">
+            <ng-container *ngFor="let reqitem of notAcceptedRequestsList">
+              <div class="container bg-white mylist">
+                <div class="p-4 row">
+    
+                  <!-- DIS -->
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/destination2.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            مبدا: <span><b style="font-size: 18px;font-weight: bolder;">{{reqitem.origin}}</b></span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/destination1.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            مقصد:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.destination}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/loadingdate1.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            تاریخ بارگیری:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.loading_date}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/unloadingdate.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            تاریخ تخلیه:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.unloading_date}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/info.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            نوع بار:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.load_type}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/weight.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            تناژ:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.weight}}</b>
+                            </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <!-- Button -->
+                  <div class="col-sm-3 pt-1">
+                    
+                    <button class="btn btn-danger btn-sm py-3 col-12  mb-3" > ویرایش درخواست </button>
+                    <button class="btn btn-success btn-sm col-12 py-3">لغو درخواست</button>
+                  </div>
+    
+    
+                </div>
+              </div>
+            </ng-container>
+          </div>
         </mat-tab>
         <mat-tab label="آماده بارگیری">
-          <app-dynamic-table [columns]="tab3"></app-dynamic-table>
+          <div style="height: 440px;">
+            <ng-container *ngFor="let reqitem of AcceptedRequestsList">
+              <div class="container bg-white mylist">
+                <div class="p-4 row">
+    
+                  <!-- DIS -->
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/destination2.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            مبدا: <span><b style="font-size: 18px;font-weight: bolder;">{{reqitem.origin}}</b></span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/destination1.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            مقصد:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.destination}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/info.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            نوع بار:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.load_type}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/status.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            وضعیت درخواست:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.trip_status}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/driver.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            راننده:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.driverName}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/phone.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            شماره تماس راننده:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.driverPhone}}</b>
+                            </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <!-- Button -->
+                  <div class="col-sm-3 pt-1">
+                    <button class="btn btn-danger btn-sm py-3 col-12  mb-3" (click)="showTripDetails(reqitem.trip_id)" >جزئیات</button>
+                  </div>
+    
+    
+                </div>
+              </div>
+            </ng-container>
+          </div>
         </mat-tab>
         <mat-tab label="تحویل شده">
-          <app-dynamic-table [columns]="tab2"></app-dynamic-table>
+          <div style="height: 440px;">
+            <ng-container *ngFor="let reqitem of FinishedRequestsList">
+              <div class="container bg-white mylist">
+                <div class="p-4 row">
+    
+                  <!-- DIS -->
+                  <div class="col-sm-9">
+                    <div class="row">
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/destination2.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            مبدا: <span><b style="font-size: 18px;font-weight: bolder;">{{reqitem.origin}}</b></span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/destination1.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            مقصد:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.destination}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/info.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            نوع بار:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.load_type}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/status.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            وضعیت درخواست:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.trip_status}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/driver.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            راننده:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.driverName}}</b>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 py-2 row">
+                        <div class="col-2" style="text-align: left;">
+                          <i>
+                            <img src="../../../../assets/images/phone.png" alt="" style="max-width:none; width: 40px;vertical-align: middle;">
+                          </i>
+                        </div>
+                        <div class="col-10" style="margin-right: -15px;">
+                          <p style="font-size: 18px;">
+                            شماره تماس راننده:
+                            <span>
+                              <b style="font-size: 18px;font-weight: bolder;">{{reqitem.driverPhone}}</b>
+                            </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <!-- Button -->
+                  <div class="col-sm-3 pt-1">
+                    <button class="btn btn-danger btn-sm py-3 col-12  mb-3" (click)="showTripDetails(reqitem.trip_id)">جزئیات</button>
+                  </div>
+    
+    
+                </div>
+              </div>
+            </ng-container>
+          </div>
         </mat-tab>
         <mat-tab label="پیام ها">
           <ng-container *ngFor="let item of [1,2]">

@@ -16,10 +16,13 @@ export class HeaderComponent implements OnInit {
   }
 
   profile(){
-    if (localStorage.getItem('currentUser[type]')) 
+    this.auth.checkUserType().subscribe((res: any)=>{
+      if (res['flag']) 
       this.router.navigate(['driver-dashboard']);
     else 
       this.router.navigate(['applicant-dashboard']);
+    });
+
   }
 
   logout(){

@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { MatDialog } from '@angular/material/dialog';
+import { TripDetailComponent } from 'src/app/components/trip-detail/trip-detail.component';
+
 interface PeriodicElement {
   Negotiation?: string;
   downloadDate?: string;
@@ -18,6 +25,97 @@ interface PeriodicElement {
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
+  truckList: any;
+  phone="";
+  fullName: any;
+  initialImage="";
+  selected: any;
+  addTruckForm: FormGroup;
+  detailResult: any;
+  activeTrip: any;
+  finishedTrip: any;
+  tripStatus: any;
+  notAcceptedRequestsList: any;
+  notAcceptedRequestsListFlag: any;
+  AcceptedRequestsList: any;
+  AcceptedRequestsListFlag: any;
+  FinishedRequestsList: any;
+  FinishedRequestsListFlag: any;
+
+  constructor(
+    private router:Router,
+    private _formBuilder: FormBuilder,
+    private api:ApiService,
+    private auth:AuthenticationService,
+    public dialog: MatDialog
+  ) {
+    this.addTruckForm = this._formBuilder.group({
+      model: ['', [Validators.required]],
+      tag: ['', [Validators.required]],
+      year: ['', [Validators.required]],
+      classification: ['', [Validators.required]],
+    });
+   }
+
+  ngOnInit(): void {
+    this.auth.notAcceptedRequestsList().subscribe((res: any)=>{
+      this.notAcceptedRequestsList = res['list'];
+      this.notAcceptedRequestsListFlag = res['flag'];
+    });
+    this.auth.AcceptedRequestsList().subscribe((res: any)=>{
+      this.AcceptedRequestsList = res['list'];
+      this.AcceptedRequestsListFlag = res['flag'];
+    });
+    this.auth.showApplicantFinishedTripList().subscribe((res: any)=>{
+      this.FinishedRequestsList = res['list'];
+      this.FinishedRequestsListFlag = res['flag'];
+    });
+  }
+
+  showTripDetails(parameter:any){
+    console.log({"trip_id": parameter});
+    this.auth.showTripDetailsForApplicant({"trip_id": parameter}).subscribe((res: any)=>{
+      const dialogRef = this.dialog.open(TripDetailComponent, {
+        width: '850px',
+        data: res['rsp']
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   tab1=[
     {
     columnDef: 'Negotiation',
@@ -180,9 +278,5 @@ tab2=[
 }
 ]
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

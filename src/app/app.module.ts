@@ -39,7 +39,8 @@ import { UserDashboardComponent } from './pages/dashboards/user-dashboard/user-d
 import { DistpatcherDashboardComponent } from './pages/dashboards/distpatcher-dashboard/distpatcher-dashboard.component';
 import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign-in/dispatcher-sign-in.component';
 import { NgpImagePickerModule } from 'ngp-image-picker'; 
-import {MatRadioModule} from '@angular/material/radio'; 
+import {MatRadioModule} from '@angular/material/radio';
+import { TripDetailComponent } from './components/trip-detail/trip-detail.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,7 @@ import {MatRadioModule} from '@angular/material/radio';
     FaqComponent,
     NotFoundComponent,
     TestimonialsComponent,
-    SignInComponent,FooterComponent,HeaderComponent, DispatcherSignInComponent, InfoComponent, ConfirmationComponent, UserDashboardComponent, DistpatcherDashboardComponent
+    SignInComponent,FooterComponent,HeaderComponent, DispatcherSignInComponent, InfoComponent, ConfirmationComponent, UserDashboardComponent, DistpatcherDashboardComponent, TripDetailComponent
   ],
   imports: [
     BrowserModule,

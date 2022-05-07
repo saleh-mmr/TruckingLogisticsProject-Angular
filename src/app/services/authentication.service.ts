@@ -73,6 +73,33 @@ export class AuthenticationService {
     return this.http.post<any>(`${this.mainAddress}/unload-announcement/`, data);
   }
 
+  showFinishedTrip(){
+    return this.http.get<any>(`${this.mainAddress}/show-finished-trip/`);
+  }
+
+  getDriverInfo(){
+    return this.http.get<any>(`${this.mainAddress}/get-driver-info/`);
+  }
+
+  checkUserType(){
+    return this.http.get<any>(`${this.mainAddress}/check-user-type/`);
+  }
+
+  notAcceptedRequestsList(){
+    return this.http.get<any>(`${this.mainAddress}/show-not-accepted-list/`);
+  }
+
+  AcceptedRequestsList(){
+    return this.http.get<any>(`${this.mainAddress}/show-accepted-list/`);
+  }
+
+  showTripDetailsForApplicant(data: any){
+    return this.http.post<any>(`${this.mainAddress}/show-trip-details/`, data);
+  }
+
+  showApplicantFinishedTripList(){
+    return this.http.get<any>(`${this.mainAddress}/show-applicant-finished-trip-list/`);
+  }
 
 
   //
