@@ -1,0 +1,11 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+.selectClassification{
+    height: 50px;
+    color: #f76649;
+    border: 1px solid #e1e1e1;
+    background-color: transparent;
+    border-radius: 0;
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 100%;
+}

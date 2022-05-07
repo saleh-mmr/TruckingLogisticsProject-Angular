@@ -101,6 +101,10 @@ export class AuthenticationService {
     return this.http.get<any>(`${this.mainAddress}/show-applicant-finished-trip-list/`);
   }
 
+  newRequest(data: any){
+    return this.http.post<any>(`${this.mainAddress}/new-request/`, data);
+  }
+
 
   //
   // // tslint:disable-next-line:typedef

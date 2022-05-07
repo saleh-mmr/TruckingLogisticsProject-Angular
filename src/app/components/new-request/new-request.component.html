@@ -1,0 +1,130 @@
+    <div class="section-title">
+      <h2>نیازهای خود را به ما بگویید</h2>
+      <p>{{data.origin}}</p>
+    </div>
+    <div class="request-quote-content"  style="height: 750px;overflow-y: scroll;margin: auto;width: 100%;">
+      <form class="request-quote-from" style="margin: auto;width: 95%;"   [formGroup]="newRequestForm" >
+        <div>
+          <fieldset class="row border p-2 mb-4">
+            <legend class="mb-3">بارگیری و تخلیه</legend>
+            <div class="col-lg-6 col-sm-6">
+              <div class="form-group">
+                <label class="form-label">مبدا بار</label>
+                <input type="text" class="form-control" formControlName="origin">
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <div class="form-group">
+                <label class="form-label">مقصد بار</label>
+                <input type="email" class="form-control" formControlName="destination">
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <div class="form-group">
+                <label class="form-label">تاریخ بارگیری</label>
+                <input type="date" class="form-control" formControlName="loadingDate">
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <div class="form-group">
+                <label class="form-label">تاریخ تخلیه</label>
+                <input type="date" class="form-control" formControlName="unloadingDate">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="row border p-2 mb-4">
+            <legend class="mb-3">مشخصات بار</legend>
+            <div class="col-lg-3 col-sm-6">
+              <div class="form-group">
+                <label class="form-label">نوع بار</label>
+                <mat-form-field appearance="outline">
+                  <mat-label style="font-family: Vazir-Regular-FD, sans-serif;">نوع بار</mat-label>
+                  <mat-select name="laod"  formControlName="loadType">
+                    <mat-option *ngFor="let load of loadTypeList" [value]="load.value" style="font-family: Vazir-Regular-FD, sans-serif;">
+                      {{load.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="form-group">
+                <label class="form-label" style="margin-bottom: 20px;">وزن</label>
+                <input type="text" placeholder="تن" class="form-control" formControlName="weight">
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="form-group">
+                <label class="form-label" style="margin-bottom: 20px;">ارزش (تومان)</label>
+                <input type="text" placeholder="تومان" class="form-control" formControlName="value">
+              </div>
+            </div>
+            <div class="col-lg-12 col-sm-12">
+              <div class="form-group">
+                <label class="form-label">توضیحات</label>
+                <textarea rows="4" cols="50" class="form-control" formControlName="description"></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="row border p-2 mb-4">
+            <legend class="mb-3">مشخصات خودروی حمل</legend>
+            <div class="col-lg-6 col-sm-6">
+              <label class="form-label" style="font-size: 14px;line-height: 1;margin-bottom: 12px;font-weight: 600;">نوع ماشین و بارگیر</label>
+              <div class="form-group">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label style="font-family: Vazir-Regular-FD, sans-serif;">انتخاب کنید</mat-label>
+                  <mat-select multiple formControlName="truckClassificationRequirement">
+                    <mat-option *ngFor="let topping of toppingList" [value]="topping" style="font-family: Vazir-Regular-FD, sans-serif;">{{topping}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="row border p-2 mb-4">
+            <legend class="mb-3">هزینه حمل</legend>
+            <div class="col-lg-6 col-sm-6">
+              <div class="form-group">
+                <label class="form-label">مبلغ پیشنهادی</label>
+                <input
+                  type="text"
+                  maxlength="15"
+                  placeholder="تومان"
+                  class="form-control"
+                  formControlName="proposedPrice">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="row border p-2 mb-4">
+            <legend class="mb-3">مشخصات تحویل گیرنده</legend>
+            <div class="col-lg-6 col-sm-6">
+              <div class="form-group">
+                <label class="form-label">تحویل گیرنده</label>
+                <input type="text" class="form-control" formControlName="receiverName">
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <div class="form-group">
+                <label class="form-label">تلفن همراه</label>
+                <input
+                  type="text"
+                  maxlength="11"
+                  minlength="11"
+                  placeholder="09xxxxxxxxx"
+                  class="form-control"
+                  formControlName="receiverPhone">
+              </div>
+            </div>
+          </fieldset>
+        </div>        
+        <button type="submit" class="default-btn" (click)="newRequest()">
+          <span>
+            ثبت درخواست
+            <i class="ri-send-plane-2-fill"></i>
+          </span>
+        </button>
+      </form>
+    </div>

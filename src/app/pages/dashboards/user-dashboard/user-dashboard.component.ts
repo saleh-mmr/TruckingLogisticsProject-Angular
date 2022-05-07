@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TripDetailComponent } from 'src/app/components/trip-detail/trip-detail.component';
+import { NewRequestComponent } from 'src/app/components/new-request/new-request.component';
 
 interface PeriodicElement {
   Negotiation?: string;
@@ -85,7 +86,15 @@ export class UserDashboardComponent implements OnInit {
     });
   }
 
-
+  newRequest(){
+      const dialogRef = this.dialog.open(NewRequestComponent, {
+        width: '1100px',
+        data: {origin: "",loadingDate: "",destination: "",unloadingDate: "",weight: "",loadType: ""}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        location.reload();
+      });
+  }
 
 
 

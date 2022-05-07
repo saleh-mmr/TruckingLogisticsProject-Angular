@@ -13,10 +13,17 @@ export class ApiService {
 
   constructor(private http: HttpClient) {  }
 
+  signUp(data: any) {
+    return this.http.post(`${this.mainAddress}/signup/`, data);
+  }
 
+  getClassifications() {
+    return this.http.get(`${this.mainAddress}/get-class/`);
+  }
 
-
-
+  getLoadType() {
+    return this.http.get(`${this.mainAddress}/get-load/`);
+  }
 
   // tslint:disable-next-line:typedef
   changeMessage(message: any){
@@ -38,9 +45,7 @@ export class ApiService {
     return this.http.post(`${this.mainAddress}/codecheck/`, { code: data } );
   }
 
-  signUp(data: any) {
-    return this.http.post(`${this.mainAddress}/signup/`, data);
-  }
+
 
 
 }

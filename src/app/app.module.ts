@@ -40,7 +40,11 @@ import { DistpatcherDashboardComponent } from './pages/dashboards/distpatcher-da
 import { DispatcherSignInComponent } from './pages/sign-in-pages/dispatcher-sign-in/dispatcher-sign-in.component';
 import { NgpImagePickerModule } from 'ngp-image-picker'; 
 import {MatRadioModule} from '@angular/material/radio';
-import { TripDetailComponent } from './components/trip-detail/trip-detail.component'; 
+import { TripDetailComponent } from './components/trip-detail/trip-detail.component';
+import { NewRequestComponent } from './components/new-request/new-request.component'; 
+import { NgSelectModule } from "@ng-select/ng-select";
+import {MatSelectModule} from '@angular/material/select'; 
+import {MatButtonModule} from '@angular/material/button'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +62,7 @@ import { TripDetailComponent } from './components/trip-detail/trip-detail.compon
     FaqComponent,
     NotFoundComponent,
     TestimonialsComponent,
-    SignInComponent,FooterComponent,HeaderComponent, DispatcherSignInComponent, InfoComponent, ConfirmationComponent, UserDashboardComponent, DistpatcherDashboardComponent, TripDetailComponent
+    SignInComponent,FooterComponent,HeaderComponent, DispatcherSignInComponent, InfoComponent, ConfirmationComponent, UserDashboardComponent, DistpatcherDashboardComponent, TripDetailComponent, NewRequestComponent
   ],
   imports: [
     BrowserModule,
@@ -71,8 +75,10 @@ import { TripDetailComponent } from './components/trip-detail/trip-detail.compon
     MatIconModule,
     MatExpansionModule,NgpImagePickerModule,
     MatCardModule,MatTabsModule,DynamicTableModule,
-    MatRadioModule
-    
+    MatRadioModule,
+    NgSelectModule,
+    MatSelectModule,
+    MatButtonModule    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
