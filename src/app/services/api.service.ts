@@ -25,6 +25,10 @@ export class ApiService {
     return this.http.get(`${this.mainAddress}/get-load/`);
   }
 
+  getNumbers() {
+    return this.http.get(`${this.mainAddress}/get-numbers/`);
+  }
+
   // tslint:disable-next-line:typedef
   changeMessage(message: any){
     this.messageSource.next(message);

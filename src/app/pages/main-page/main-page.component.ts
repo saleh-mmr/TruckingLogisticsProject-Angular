@@ -1,5 +1,6 @@
 import { SharedService } from 'src/app/services/shared.service';
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-main-page',
@@ -12,7 +13,12 @@ export class MainPageComponent implements OnInit {
   flag2 = false;
   testFlag1 = false;
   testFlag2 = false;
-  constructor(public shared:SharedService) { }
+  driverNum: any;
+  carrierNum: any;
+  tripNum: any;
+  applicantNum: any;
+
+  constructor(public shared:SharedService, private api: ApiService) { }
 
 
   changFlagToHistory(): void{
@@ -54,6 +60,13 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.api.getNumbers().subscribe((res: any)=>{
+
+      this.driverNum= res['driverNum'];
+      this.carrierNum= res['carrierNum'];
+      this.tripNum= res['tripNum'];
+      this.applicantNum= res['applicantNum'];
+    });
   }
 
 }
