@@ -103,6 +103,7 @@ export class DistpatcherDashboardComponent implements OnInit {
 
   acceptRequest(parameter:any){
     this.auth.acceptRequest({"request_id": parameter}).subscribe((res: any)=>{
+      console.log(res);
       location.reload();
     });
   }

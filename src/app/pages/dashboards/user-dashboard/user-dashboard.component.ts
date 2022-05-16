@@ -92,7 +92,10 @@ export class UserDashboardComponent implements OnInit {
         data: {origin: "",loadingDate: "",destination: "",unloadingDate: "",weight: "",loadType: ""}
       });
       dialogRef.afterClosed().subscribe(result => {
-        location.reload();
+        this.auth.notAcceptedRequestsList().subscribe((res: any)=>{
+          this.notAcceptedRequestsList = res['list'];
+          this.notAcceptedRequestsListFlag = res['flag'];
+        });
       });
   }
 

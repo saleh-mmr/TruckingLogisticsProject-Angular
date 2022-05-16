@@ -70,10 +70,10 @@ export class NewRequestComponent implements OnInit {
   }
 
   newRequest(){
-    // this.auth.newRequest(this.newRequestForm.value).subscribe((res: any)=>{
+    this.auth.newRequest(this.newRequestForm.value).subscribe((res: any)=>{
       this.data = {origin: "fnfbrfbf",loadingDate: "gfgnfg",destination: "fgnfngn",unloadingDate: "bdbnfn",weight: ",jk,",loadType: "fgbb"};
       this.dialogRef.close();
-    // });
+    });
 
   }
 

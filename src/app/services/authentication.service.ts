@@ -7,21 +7,16 @@ import {Router} from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-
   mainAddress = 'http://127.0.0.1:8000'
-
-
   constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(<any>localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
-
   public get currentUserValue(): any {
     return this.currentUserSubject.value;
   }
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
-
   signout() {
     // remove user from local storage to log user out
     this.http.get(`${this.mainAddress}/signout/`).subscribe(data => {
@@ -30,7 +25,6 @@ export class AuthenticationService {
     });
     this.router.navigate(['/']);
   }
-
   signIn(data: any) {
     return this.http.post<any>(`${this.mainAddress}/signin/`, data)
       .pipe(map(user => {
@@ -44,7 +38,7 @@ export class AuthenticationService {
   addTruck(data: any){
     return this.http.post<any>(`${this.mainAddress}/add-truck/`, data);
   }
-  
+
   showTrucks(){
     return this.http.get<any>(`${this.mainAddress}/show-trucks/`);
   }
